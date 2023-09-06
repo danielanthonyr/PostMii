@@ -1,0 +1,708 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9E2AE43B2AA81F7E00E66B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE43A2AA81F7E00E66B9A /* AppDelegate.swift */; };
+		9E2AE43D2AA81F7E00E66B9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE43C2AA81F7E00E66B9A /* SceneDelegate.swift */; };
+		9E2AE4452AA81F7E00E66B9A /* PostMii.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4432AA81F7E00E66B9A /* PostMii.xcdatamodeld */; };
+		9E2AE4472AA81F7E00E66B9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2AE4462AA81F7E00E66B9A /* Assets.xcassets */; };
+		9E2AE44A2AA81F7E00E66B9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2AE4482AA81F7E00E66B9A /* LaunchScreen.storyboard */; };
+		9E2AE4552AA81F7E00E66B9A /* PostMiiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4542AA81F7E00E66B9A /* PostMiiTests.swift */; };
+		9E2AE45F2AA81F7E00E66B9A /* PostMiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE45E2AA81F7E00E66B9A /* PostMiiUITests.swift */; };
+		9E2AE4612AA81F7E00E66B9A /* PostMiiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4602AA81F7E00E66B9A /* PostMiiUITestsLaunchTests.swift */; };
+		9E2AE4732AA8204A00E66B9A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4722AA8204A00E66B9A /* HomeVC.swift */; };
+		9E2AE4752AA8204E00E66B9A /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4742AA8204E00E66B9A /* HomeVM.swift */; };
+		9E2AE4772AA8205300E66B9A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4762AA8205300E66B9A /* HomeView.swift */; };
+		9E2AE47A2AA8250E00E66B9A /* TodoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4792AA8250E00E66B9A /* TodoCard.swift */; };
+		9E2AE47D2AA8285D00E66B9A /* AddTodoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE47C2AA8285D00E66B9A /* AddTodoVC.swift */; };
+		9E2AE47F2AA8286300E66B9A /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE47E2AA8286300E66B9A /* AddTodoView.swift */; };
+		9E2AE4812AA8289C00E66B9A /* AddTodoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4802AA8289C00E66B9A /* AddTodoVM.swift */; };
+		9E2AE4842AA82B6800E66B9A /* TodoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */; };
+		9E2AE4882AA82E0500E66B9A /* TodoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4872AA82E0500E66B9A /* TodoCardCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9E2AE4512AA81F7E00E66B9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E2AE42F2AA81F7D00E66B9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E2AE4362AA81F7D00E66B9A;
+			remoteInfo = PostMii;
+		};
+		9E2AE45B2AA81F7E00E66B9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E2AE42F2AA81F7D00E66B9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E2AE4362AA81F7D00E66B9A;
+			remoteInfo = PostMii;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9E2AE4372AA81F7D00E66B9A /* PostMii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostMii.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E2AE43A2AA81F7E00E66B9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9E2AE43C2AA81F7E00E66B9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9E2AE4442AA81F7E00E66B9A /* PostMii.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostMii.xcdatamodel; sourceTree = "<group>"; };
+		9E2AE4462AA81F7E00E66B9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E2AE4492AA81F7E00E66B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E2AE44B2AA81F7E00E66B9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E2AE4502AA81F7E00E66B9A /* PostMiiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostMiiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E2AE4542AA81F7E00E66B9A /* PostMiiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMiiTests.swift; sourceTree = "<group>"; };
+		9E2AE45A2AA81F7E00E66B9A /* PostMiiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostMiiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E2AE45E2AA81F7E00E66B9A /* PostMiiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMiiUITests.swift; sourceTree = "<group>"; };
+		9E2AE4602AA81F7E00E66B9A /* PostMiiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMiiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9E2AE4722AA8204A00E66B9A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		9E2AE4742AA8204E00E66B9A /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		9E2AE4762AA8205300E66B9A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9E2AE4792AA8250E00E66B9A /* TodoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCard.swift; sourceTree = "<group>"; };
+		9E2AE47C2AA8285D00E66B9A /* AddTodoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoVC.swift; sourceTree = "<group>"; };
+		9E2AE47E2AA8286300E66B9A /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
+		9E2AE4802AA8289C00E66B9A /* AddTodoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoVM.swift; sourceTree = "<group>"; };
+		9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardView.swift; sourceTree = "<group>"; };
+		9E2AE4872AA82E0500E66B9A /* TodoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9E2AE4342AA81F7D00E66B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E2AE44D2AA81F7E00E66B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E2AE4572AA81F7E00E66B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9E2AE42E2AA81F7D00E66B9A = {
+			isa = PBXGroup;
+			children = (
+				9E2AE4392AA81F7D00E66B9A /* PostMii */,
+				9E2AE4532AA81F7E00E66B9A /* PostMiiTests */,
+				9E2AE45D2AA81F7E00E66B9A /* PostMiiUITests */,
+				9E2AE4382AA81F7D00E66B9A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9E2AE4382AA81F7D00E66B9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE4372AA81F7D00E66B9A /* PostMii.app */,
+				9E2AE4502AA81F7E00E66B9A /* PostMiiTests.xctest */,
+				9E2AE45A2AA81F7E00E66B9A /* PostMiiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E2AE4392AA81F7D00E66B9A /* PostMii */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE46F2AA81F9600E66B9A /* Screens */,
+				9E2AE46E2AA81F9000E66B9A /* Helpers */,
+				9E2AE46D2AA81F8900E66B9A /* Services */,
+				9E2AE4702AA81F9A00E66B9A /* Supporting Files */,
+				9E2AE4462AA81F7E00E66B9A /* Assets.xcassets */,
+				9E2AE4482AA81F7E00E66B9A /* LaunchScreen.storyboard */,
+				9E2AE44B2AA81F7E00E66B9A /* Info.plist */,
+				9E2AE4432AA81F7E00E66B9A /* PostMii.xcdatamodeld */,
+			);
+			path = PostMii;
+			sourceTree = "<group>";
+		};
+		9E2AE4532AA81F7E00E66B9A /* PostMiiTests */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE4542AA81F7E00E66B9A /* PostMiiTests.swift */,
+			);
+			path = PostMiiTests;
+			sourceTree = "<group>";
+		};
+		9E2AE45D2AA81F7E00E66B9A /* PostMiiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE45E2AA81F7E00E66B9A /* PostMiiUITests.swift */,
+				9E2AE4602AA81F7E00E66B9A /* PostMiiUITestsLaunchTests.swift */,
+			);
+			path = PostMiiUITests;
+			sourceTree = "<group>";
+		};
+		9E2AE46D2AA81F8900E66B9A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9E2AE46E2AA81F9000E66B9A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9E2AE46F2AA81F9600E66B9A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE47B2AA8284700E66B9A /* Add Todo Screen */,
+				9E2AE4712AA8203B00E66B9A /* Home Screen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		9E2AE4702AA81F9A00E66B9A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE43A2AA81F7E00E66B9A /* AppDelegate.swift */,
+				9E2AE43C2AA81F7E00E66B9A /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9E2AE4712AA8203B00E66B9A /* Home Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE4822AA82B6100E66B9A /* View */,
+				9E2AE4782AA8250300E66B9A /* Model */,
+				9E2AE4742AA8204E00E66B9A /* HomeVM.swift */,
+			);
+			path = "Home Screen";
+			sourceTree = "<group>";
+		};
+		9E2AE4782AA8250300E66B9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE4792AA8250E00E66B9A /* TodoCard.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E2AE47B2AA8284700E66B9A /* Add Todo Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE47C2AA8285D00E66B9A /* AddTodoVC.swift */,
+				9E2AE47E2AA8286300E66B9A /* AddTodoView.swift */,
+				9E2AE4802AA8289C00E66B9A /* AddTodoVM.swift */,
+			);
+			path = "Add Todo Screen";
+			sourceTree = "<group>";
+		};
+		9E2AE4822AA82B6100E66B9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE4722AA8204A00E66B9A /* HomeVC.swift */,
+				9E2AE4762AA8205300E66B9A /* HomeView.swift */,
+				9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */,
+				9E2AE4872AA82E0500E66B9A /* TodoCardCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E2AE4362AA81F7D00E66B9A /* PostMii */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E2AE4642AA81F7E00E66B9A /* Build configuration list for PBXNativeTarget "PostMii" */;
+			buildPhases = (
+				9E2AE4332AA81F7D00E66B9A /* Sources */,
+				9E2AE4342AA81F7D00E66B9A /* Frameworks */,
+				9E2AE4352AA81F7D00E66B9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PostMii;
+			productName = PostMii;
+			productReference = 9E2AE4372AA81F7D00E66B9A /* PostMii.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9E2AE44F2AA81F7E00E66B9A /* PostMiiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E2AE4672AA81F7E00E66B9A /* Build configuration list for PBXNativeTarget "PostMiiTests" */;
+			buildPhases = (
+				9E2AE44C2AA81F7E00E66B9A /* Sources */,
+				9E2AE44D2AA81F7E00E66B9A /* Frameworks */,
+				9E2AE44E2AA81F7E00E66B9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E2AE4522AA81F7E00E66B9A /* PBXTargetDependency */,
+			);
+			name = PostMiiTests;
+			productName = PostMiiTests;
+			productReference = 9E2AE4502AA81F7E00E66B9A /* PostMiiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9E2AE4592AA81F7E00E66B9A /* PostMiiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E2AE46A2AA81F7E00E66B9A /* Build configuration list for PBXNativeTarget "PostMiiUITests" */;
+			buildPhases = (
+				9E2AE4562AA81F7E00E66B9A /* Sources */,
+				9E2AE4572AA81F7E00E66B9A /* Frameworks */,
+				9E2AE4582AA81F7E00E66B9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E2AE45C2AA81F7E00E66B9A /* PBXTargetDependency */,
+			);
+			name = PostMiiUITests;
+			productName = PostMiiUITests;
+			productReference = 9E2AE45A2AA81F7E00E66B9A /* PostMiiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E2AE42F2AA81F7D00E66B9A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					9E2AE4362AA81F7D00E66B9A = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					9E2AE44F2AA81F7E00E66B9A = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 9E2AE4362AA81F7D00E66B9A;
+					};
+					9E2AE4592AA81F7E00E66B9A = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 9E2AE4362AA81F7D00E66B9A;
+					};
+				};
+			};
+			buildConfigurationList = 9E2AE4322AA81F7D00E66B9A /* Build configuration list for PBXProject "PostMii" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9E2AE42E2AA81F7D00E66B9A;
+			productRefGroup = 9E2AE4382AA81F7D00E66B9A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E2AE4362AA81F7D00E66B9A /* PostMii */,
+				9E2AE44F2AA81F7E00E66B9A /* PostMiiTests */,
+				9E2AE4592AA81F7E00E66B9A /* PostMiiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9E2AE4352AA81F7D00E66B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E2AE44A2AA81F7E00E66B9A /* LaunchScreen.storyboard in Resources */,
+				9E2AE4472AA81F7E00E66B9A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E2AE44E2AA81F7E00E66B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E2AE4582AA81F7E00E66B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E2AE4332AA81F7D00E66B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E2AE4452AA81F7E00E66B9A /* PostMii.xcdatamodeld in Sources */,
+				9E2AE4752AA8204E00E66B9A /* HomeVM.swift in Sources */,
+				9E2AE47F2AA8286300E66B9A /* AddTodoView.swift in Sources */,
+				9E2AE47D2AA8285D00E66B9A /* AddTodoVC.swift in Sources */,
+				9E2AE47A2AA8250E00E66B9A /* TodoCard.swift in Sources */,
+				9E2AE4732AA8204A00E66B9A /* HomeVC.swift in Sources */,
+				9E2AE4772AA8205300E66B9A /* HomeView.swift in Sources */,
+				9E2AE43B2AA81F7E00E66B9A /* AppDelegate.swift in Sources */,
+				9E2AE4812AA8289C00E66B9A /* AddTodoVM.swift in Sources */,
+				9E2AE4882AA82E0500E66B9A /* TodoCardCell.swift in Sources */,
+				9E2AE4842AA82B6800E66B9A /* TodoCardView.swift in Sources */,
+				9E2AE43D2AA81F7E00E66B9A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E2AE44C2AA81F7E00E66B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E2AE4552AA81F7E00E66B9A /* PostMiiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E2AE4562AA81F7E00E66B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E2AE4612AA81F7E00E66B9A /* PostMiiUITestsLaunchTests.swift in Sources */,
+				9E2AE45F2AA81F7E00E66B9A /* PostMiiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9E2AE4522AA81F7E00E66B9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E2AE4362AA81F7D00E66B9A /* PostMii */;
+			targetProxy = 9E2AE4512AA81F7E00E66B9A /* PBXContainerItemProxy */;
+		};
+		9E2AE45C2AA81F7E00E66B9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E2AE4362AA81F7D00E66B9A /* PostMii */;
+			targetProxy = 9E2AE45B2AA81F7E00E66B9A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9E2AE4482AA81F7E00E66B9A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E2AE4492AA81F7E00E66B9A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9E2AE4622AA81F7E00E66B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9E2AE4632AA81F7E00E66B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9E2AE4652AA81F7E00E66B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J6XHS9BNCX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PostMii/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielanthonyr.PostMii;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9E2AE4662AA81F7E00E66B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J6XHS9BNCX;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PostMii/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielanthonyr.PostMii;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9E2AE4682AA81F7E00E66B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J6XHS9BNCX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielanthonyr.PostMiiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostMii.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PostMii";
+			};
+			name = Debug;
+		};
+		9E2AE4692AA81F7E00E66B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J6XHS9BNCX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielanthonyr.PostMiiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostMii.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PostMii";
+			};
+			name = Release;
+		};
+		9E2AE46B2AA81F7E00E66B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J6XHS9BNCX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielanthonyr.PostMiiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PostMii;
+			};
+			name = Debug;
+		};
+		9E2AE46C2AA81F7E00E66B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J6XHS9BNCX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danielanthonyr.PostMiiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PostMii;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9E2AE4322AA81F7D00E66B9A /* Build configuration list for PBXProject "PostMii" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E2AE4622AA81F7E00E66B9A /* Debug */,
+				9E2AE4632AA81F7E00E66B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E2AE4642AA81F7E00E66B9A /* Build configuration list for PBXNativeTarget "PostMii" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E2AE4652AA81F7E00E66B9A /* Debug */,
+				9E2AE4662AA81F7E00E66B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E2AE4672AA81F7E00E66B9A /* Build configuration list for PBXNativeTarget "PostMiiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E2AE4682AA81F7E00E66B9A /* Debug */,
+				9E2AE4692AA81F7E00E66B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E2AE46A2AA81F7E00E66B9A /* Build configuration list for PBXNativeTarget "PostMiiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E2AE46B2AA81F7E00E66B9A /* Debug */,
+				9E2AE46C2AA81F7E00E66B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9E2AE4432AA81F7E00E66B9A /* PostMii.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9E2AE4442AA81F7E00E66B9A /* PostMii.xcdatamodel */,
+			);
+			currentVersion = 9E2AE4442AA81F7E00E66B9A /* PostMii.xcdatamodel */;
+			path = PostMii.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9E2AE42F2AA81F7D00E66B9A /* Project object */;
+}
