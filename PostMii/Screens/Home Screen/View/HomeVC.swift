@@ -37,10 +37,15 @@ class HomeVC: UIViewController {
     func setupTodoCollectionView() {
         views.todoCollectionView.delegate = self
         views.todoCollectionView.dataSource = self
+        views.todoCollectionView.register(TodoCardCell.self, forCellWithReuseIdentifier: TodoCardCell.reuseIdentifier)
     }
     
     func setupViewModel() {
-        
+        viewModel.getTodos()
+        viewModel.reloadCollectionView = { [weak self] in
+            guard let self = self else { return }
+            self.views.todoCollectionView.reloadData()
+        }
     }
     
     // MARK: - Methods
@@ -62,15 +67,25 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return viewModel.todoCardCellVMs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCardCell.reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .blue
-        cell.layer.cornerRadius = 10
-        cell.layer.masksToBounds = true
-        return cell
+        let gradients = Gradients().allGradients
+        let todoCellVM = viewModel.getTodoCellVM(at: indexPath)
+        
+        if let randomGradient = gradients.randomElement() {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCardCell.reuseIdentifier, for: indexPath) as? TodoCardCell {
+                randomGradient.frame = cell.bounds
+                cell.layer.addSublayer(randomGradient)
+                cell.layer.cornerRadius = 10
+                cell.layer.masksToBounds = true
+                cell.cellVM = todoCellVM
+                return cell
+            }
+        }
+        
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

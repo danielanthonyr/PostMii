@@ -26,24 +26,21 @@ class TodoCardView: UIView {
     private(set) var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = "Name of Todo"
         return label
     }()
     
     private(set) var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = "Date of Todo"
         return label
     }()
     
     private(set) var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.sizeToFit()
-        label.text = "Description of Todo, Description of Todo, Description of Todo Description of Todo Description of Todo Description of Todo Description of Todo Description of Todo Description of Todo"
         return label
     }()
     
@@ -61,6 +58,14 @@ class TodoCardView: UIView {
     }
     
     // MARK: - Methods
+    
+    func setupLabels(todoCardCellVM: TodoCardCellVM) {
+        let dateFormatter = DateFormatter()
+        
+        self.nameLabel.text = todoCardCellVM.name
+        self.dateLabel.text = dateFormatter.getShortDateString(date: todoCardCellVM.date)
+        self.descriptionLabel.text = todoCardCellVM.description
+    }
     
     func setupViews() {
         nameAndDateStackview.addArrangedSubview(nameLabel)

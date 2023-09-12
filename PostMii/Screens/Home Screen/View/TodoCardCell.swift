@@ -14,6 +14,14 @@ class TodoCardCell: UICollectionViewCell {
     
     static let reuseIdentifier = "TodoCardViewCell"
     
+    var cellVM: TodoCardCellVM? {
+        didSet {
+            if let cellVM = cellVM {
+                todoCardView.setupLabels(todoCardCellVM: cellVM)
+            }
+        }
+    }
+    
     // MARK: - Views
     
     private(set) var todoCardView: TodoCardView = {

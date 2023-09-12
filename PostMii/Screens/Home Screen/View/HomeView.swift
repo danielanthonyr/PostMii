@@ -20,7 +20,6 @@ class HomeView: UIView {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(TodoCardCell.self, forCellWithReuseIdentifier: TodoCardCell.reuseIdentifier)
         return collectionView
     }()
     

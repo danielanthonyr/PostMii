@@ -24,6 +24,11 @@
 		9E2AE4812AA8289C00E66B9A /* AddTodoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4802AA8289C00E66B9A /* AddTodoVM.swift */; };
 		9E2AE4842AA82B6800E66B9A /* TodoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */; };
 		9E2AE4882AA82E0500E66B9A /* TodoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4872AA82E0500E66B9A /* TodoCardCell.swift */; };
+		9E4583982AA900B900822721 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4583972AA900B900822721 /* Gradients.swift */; };
+		9E45839A2AA9033100822721 /* UIColor+HexConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4583992AA9033100822721 /* UIColor+HexConversion.swift */; };
+		9E45839C2AB028B600822721 /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E45839B2AB028B600822721 /* TodoService.swift */; };
+		9E45839F2AB02A7500822721 /* TodoCardCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E45839E2AB02A7500822721 /* TodoCardCellVM.swift */; };
+		9E4583A12AB02D8200822721 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4583A02AB02D8200822721 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		9E2AE4802AA8289C00E66B9A /* AddTodoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoVM.swift; sourceTree = "<group>"; };
 		9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardView.swift; sourceTree = "<group>"; };
 		9E2AE4872AA82E0500E66B9A /* TodoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardCell.swift; sourceTree = "<group>"; };
+		9E4583972AA900B900822721 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
+		9E4583992AA9033100822721 /* UIColor+HexConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexConversion.swift"; sourceTree = "<group>"; };
+		9E45839B2AB028B600822721 /* TodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoService.swift; sourceTree = "<group>"; };
+		9E45839E2AB02A7500822721 /* TodoCardCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardCellVM.swift; sourceTree = "<group>"; };
+		9E4583A02AB02D8200822721 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +157,7 @@
 		9E2AE46D2AA81F8900E66B9A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9E45839B2AB028B600822721 /* TodoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -154,6 +165,9 @@
 		9E2AE46E2AA81F9000E66B9A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9E4583972AA900B900822721 /* Gradients.swift */,
+				9E4583992AA9033100822721 /* UIColor+HexConversion.swift */,
+				9E4583A02AB02D8200822721 /* DateFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -179,9 +193,9 @@
 		9E2AE4712AA8203B00E66B9A /* Home Screen */ = {
 			isa = PBXGroup;
 			children = (
+				9E45839D2AB0295F00822721 /* ViewModel */,
 				9E2AE4822AA82B6100E66B9A /* View */,
 				9E2AE4782AA8250300E66B9A /* Model */,
-				9E2AE4742AA8204E00E66B9A /* HomeVM.swift */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
@@ -213,6 +227,15 @@
 				9E2AE4872AA82E0500E66B9A /* TodoCardCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9E45839D2AB0295F00822721 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E2AE4742AA8204E00E66B9A /* HomeVM.swift */,
+				9E45839E2AB02A7500822721 /* TodoCardCellVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,10 +368,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E4583982AA900B900822721 /* Gradients.swift in Sources */,
 				9E2AE4452AA81F7E00E66B9A /* PostMii.xcdatamodeld in Sources */,
+				9E45839F2AB02A7500822721 /* TodoCardCellVM.swift in Sources */,
 				9E2AE4752AA8204E00E66B9A /* HomeVM.swift in Sources */,
+				9E45839C2AB028B600822721 /* TodoService.swift in Sources */,
 				9E2AE47F2AA8286300E66B9A /* AddTodoView.swift in Sources */,
 				9E2AE47D2AA8285D00E66B9A /* AddTodoVC.swift in Sources */,
+				9E4583A12AB02D8200822721 /* DateFormatter.swift in Sources */,
+				9E45839A2AA9033100822721 /* UIColor+HexConversion.swift in Sources */,
 				9E2AE47A2AA8250E00E66B9A /* TodoCard.swift in Sources */,
 				9E2AE4732AA8204A00E66B9A /* HomeVC.swift in Sources */,
 				9E2AE4772AA8205300E66B9A /* HomeView.swift in Sources */,
