@@ -44,7 +44,10 @@ class HomeVC: UIViewController {
         viewModel.getTodos()
         viewModel.reloadCollectionView = { [weak self] in
             guard let self = self else { return }
-            self.views.todoCollectionView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.views.todoCollectionView.reloadData()
+            }
         }
     }
     
@@ -66,23 +69,26 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         return CGSize(width: collectionViewRect.width, height: 160)
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.todoCardCellVMs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let gradients = Gradients().allGradients
         let todoCellVM = viewModel.getTodoCellVM(at: indexPath)
         
-        if let randomGradient = gradients.randomElement() {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCardCell.reuseIdentifier, for: indexPath) as? TodoCardCell {
-                randomGradient.frame = cell.bounds
-                cell.layer.addSublayer(randomGradient)
-                cell.layer.cornerRadius = 10
-                cell.layer.masksToBounds = true
-                cell.cellVM = todoCellVM
-                return cell
-            }
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCardCell.reuseIdentifier, for: indexPath) as? TodoCardCell {
+            let layer = Gradients().allGradients[1]
+            layer.frame = cell.contentView.bounds
+            
+            cell.layer.insertSublayer(layer, at: 0)
+            cell.layer.cornerRadius = 10
+            cell.layer.masksToBounds = true
+            cell.cellVM = todoCellVM
+            return cell
         }
         
         return UICollectionViewCell()

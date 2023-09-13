@@ -20,6 +20,7 @@ class TodoCardView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
         return stackView
     }()
     
@@ -37,7 +38,7 @@ class TodoCardView: UIView {
     
     private(set) var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.sizeToFit()

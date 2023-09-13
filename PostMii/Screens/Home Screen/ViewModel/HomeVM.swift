@@ -64,6 +64,6 @@ class HomeVM {
     }
     
     func getTodoCellVM(at indexPath: IndexPath) -> TodoCardCellVM {
-        return self.todoCardCellVMs[indexPath.row]
+        return todoCardCellVMs[indexPath.row]
     }
 }
