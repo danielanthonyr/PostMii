@@ -31,7 +31,8 @@ class HomeVC: UIViewController {
     }
     
     func setupSelf() {
-        self.title = "PostMii"
+//        self.title = "PostMii"
+        self.title = "Home"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     

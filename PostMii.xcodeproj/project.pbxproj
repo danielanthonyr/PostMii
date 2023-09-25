@@ -31,6 +31,11 @@
 		9E45839F2AB02A7500822721 /* TodoCardCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E45839E2AB02A7500822721 /* TodoCardCellVM.swift */; };
 		9E4583A12AB02D8200822721 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4583A02AB02D8200822721 /* DateFormatter.swift */; };
 		9E8CAF8F2AC14A9C00481DAA /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */; };
+		9E8CAF962AC151AF00481DAA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF952AC151AF00481DAA /* TabBarController.swift */; };
+		9E8CAF982AC152AC00481DAA /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF972AC152AC00481DAA /* MyProfileView.swift */; };
+		9E8CAF9A2AC152B100481DAA /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF992AC152B100481DAA /* MyProfileVC.swift */; };
+		9E8CAF9C2AC152B800481DAA /* MyProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF9B2AC152B800481DAA /* MyProfileVM.swift */; };
+		9E8CAF9E2AC152C100481DAA /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF9D2AC152C100481DAA /* MyProfile.swift */; };
 		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +88,11 @@
 		9E45839E2AB02A7500822721 /* TodoCardCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardCellVM.swift; sourceTree = "<group>"; };
 		9E4583A02AB02D8200822721 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarView.swift; sourceTree = "<group>"; };
+		9E8CAF952AC151AF00481DAA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		9E8CAF972AC152AC00481DAA /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
+		9E8CAF992AC152B100481DAA /* MyProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
+		9E8CAF9B2AC152B800481DAA /* MyProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVM.swift; sourceTree = "<group>"; };
+		9E8CAF9D2AC152C100481DAA /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +225,8 @@
 		9E2AE46F2AA81F9600E66B9A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9E8CAF942AC1519A00481DAA /* Tab Bar */,
+				9E8CAF902AC1516500481DAA /* My Profile Screen */,
 				9E2AE47B2AA8284700E66B9A /* Add Todo Screen */,
 				9E2AE4712AA8203B00E66B9A /* Home Screen */,
 			);
@@ -276,6 +288,49 @@
 				9E45839E2AB02A7500822721 /* TodoCardCellVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9E8CAF902AC1516500481DAA /* My Profile Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CAF932AC1517800481DAA /* Model */,
+				9E8CAF922AC1517100481DAA /* View */,
+				9E8CAF912AC1516B00481DAA /* ViewModel */,
+			);
+			path = "My Profile Screen";
+			sourceTree = "<group>";
+		};
+		9E8CAF912AC1516B00481DAA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CAF9B2AC152B800481DAA /* MyProfileVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9E8CAF922AC1517100481DAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CAF972AC152AC00481DAA /* MyProfileView.swift */,
+				9E8CAF992AC152B100481DAA /* MyProfileVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E8CAF932AC1517800481DAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CAF9D2AC152C100481DAA /* MyProfile.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E8CAF942AC1519A00481DAA /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CAF952AC151AF00481DAA /* TabBarController.swift */,
+			);
+			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -517,16 +572,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E4583982AA900B900822721 /* Gradients.swift in Sources */,
+				9E8CAF9E2AC152C100481DAA /* MyProfile.swift in Sources */,
 				9E2AE4452AA81F7E00E66B9A /* PostMii.xcdatamodeld in Sources */,
 				9E45839F2AB02A7500822721 /* TodoCardCellVM.swift in Sources */,
+				9E8CAF962AC151AF00481DAA /* TabBarController.swift in Sources */,
 				9E2AE4752AA8204E00E66B9A /* HomeVM.swift in Sources */,
 				9E45839C2AB028B600822721 /* TodoService.swift in Sources */,
 				9E2AE47F2AA8286300E66B9A /* AddTodoView.swift in Sources */,
 				9E2AE47D2AA8285D00E66B9A /* AddTodoVC.swift in Sources */,
 				9E4583A12AB02D8200822721 /* DateFormatter.swift in Sources */,
+				9E8CAF982AC152AC00481DAA /* MyProfileView.swift in Sources */,
 				9E45839A2AA9033100822721 /* UIColor+HexConversion.swift in Sources */,
 				9E2AE47A2AA8250E00E66B9A /* TodoCard.swift in Sources */,
+				9E8CAF9A2AC152B100481DAA /* MyProfileVC.swift in Sources */,
 				9E2AE4732AA8204A00E66B9A /* HomeVC.swift in Sources */,
+				9E8CAF9C2AC152B800481DAA /* MyProfileVM.swift in Sources */,
 				9E2AE4772AA8205300E66B9A /* HomeView.swift in Sources */,
 				9E2AE43B2AA81F7E00E66B9A /* AppDelegate.swift in Sources */,
 				9E2AE4812AA8289C00E66B9A /* AddTodoVM.swift in Sources */,
