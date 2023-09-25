@@ -86,6 +86,8 @@ class TodoCardView: UIView {
     
     func setupViews() {
         backgroundColor = .white
+        layer.cornerRadius = 8
+        layer.masksToBounds = true
         
         nameAndDateStackview.addArrangedSubview(nameLabel)
         nameAndDateStackview.addArrangedSubview(dateLabel)
@@ -97,9 +99,9 @@ class TodoCardView: UIView {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            cardImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            cardImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            cardImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            cardImageView.topAnchor.constraint(equalTo: topAnchor),
+            cardImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cardImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             cardImageView.heightAnchor.constraint(equalToConstant: 100),
             
             nameAndDateStackview.topAnchor.constraint(equalTo: cardImageView.bottomAnchor, constant: 16),
