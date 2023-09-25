@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101FCC4C373395395F34F2E8 /* Pods_PostMiiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */; };
+		5EB6D4FBAAF6922C6AF3235A /* Pods_PostMii_PostMiiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2286568428B59E1EA8DA565B /* Pods_PostMii_PostMiiUITests.framework */; };
 		9E2AE43B2AA81F7E00E66B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE43A2AA81F7E00E66B9A /* AppDelegate.swift */; };
 		9E2AE43D2AA81F7E00E66B9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE43C2AA81F7E00E66B9A /* SceneDelegate.swift */; };
 		9E2AE4452AA81F7E00E66B9A /* PostMii.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4432AA81F7E00E66B9A /* PostMii.xcdatamodeld */; };
@@ -23,12 +25,13 @@
 		9E2AE47F2AA8286300E66B9A /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE47E2AA8286300E66B9A /* AddTodoView.swift */; };
 		9E2AE4812AA8289C00E66B9A /* AddTodoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4802AA8289C00E66B9A /* AddTodoVM.swift */; };
 		9E2AE4842AA82B6800E66B9A /* TodoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */; };
-		9E2AE4882AA82E0500E66B9A /* TodoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2AE4872AA82E0500E66B9A /* TodoCardCell.swift */; };
 		9E4583982AA900B900822721 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4583972AA900B900822721 /* Gradients.swift */; };
 		9E45839A2AA9033100822721 /* UIColor+HexConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4583992AA9033100822721 /* UIColor+HexConversion.swift */; };
 		9E45839C2AB028B600822721 /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E45839B2AB028B600822721 /* TodoService.swift */; };
 		9E45839F2AB02A7500822721 /* TodoCardCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E45839E2AB02A7500822721 /* TodoCardCellVM.swift */; };
 		9E4583A12AB02D8200822721 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4583A02AB02D8200822721 /* DateFormatter.swift */; };
+		9E8CAF8F2AC14A9C00481DAA /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */; };
+		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2286568428B59E1EA8DA565B /* Pods_PostMii_PostMiiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMii_PostMiiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMii.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4282E5C898EBF267E8FDC2F4 /* Pods-PostMii-PostMiiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.release.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4A35F3A2E76D1BB316FC9F43 /* Pods-PostMiiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.debug.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7740B32EA14146221470DB63 /* Pods-PostMii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii.release.xcconfig"; path = "Target Support Files/Pods-PostMii/Pods-PostMii.release.xcconfig"; sourceTree = "<group>"; };
 		9E2AE4372AA81F7D00E66B9A /* PostMii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostMii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2AE43A2AA81F7E00E66B9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E2AE43C2AA81F7E00E66B9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,12 +77,16 @@
 		9E2AE47E2AA8286300E66B9A /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
 		9E2AE4802AA8289C00E66B9A /* AddTodoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoVM.swift; sourceTree = "<group>"; };
 		9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardView.swift; sourceTree = "<group>"; };
-		9E2AE4872AA82E0500E66B9A /* TodoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardCell.swift; sourceTree = "<group>"; };
 		9E4583972AA900B900822721 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		9E4583992AA9033100822721 /* UIColor+HexConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexConversion.swift"; sourceTree = "<group>"; };
 		9E45839B2AB028B600822721 /* TodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoService.swift; sourceTree = "<group>"; };
 		9E45839E2AB02A7500822721 /* TodoCardCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardCellVM.swift; sourceTree = "<group>"; };
 		9E4583A02AB02D8200822721 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarView.swift; sourceTree = "<group>"; };
+		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
+		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D76516CEF2C6D9ACC210FC1C /* Pods-PostMii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii.debug.xcconfig"; path = "Target Support Files/Pods-PostMii/Pods-PostMii.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101FCC4C373395395F34F2E8 /* Pods_PostMiiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,12 +110,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EB6D4FBAAF6922C6AF3235A /* Pods_PostMii_PostMiiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B9469B46FEEF5F361569FD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */,
+				2286568428B59E1EA8DA565B /* Pods_PostMii_PostMiiUITests.framework */,
+				D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C904C778D92717244C6C990 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D76516CEF2C6D9ACC210FC1C /* Pods-PostMii.debug.xcconfig */,
+				7740B32EA14146221470DB63 /* Pods-PostMii.release.xcconfig */,
+				B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */,
+				4282E5C898EBF267E8FDC2F4 /* Pods-PostMii-PostMiiUITests.release.xcconfig */,
+				4A35F3A2E76D1BB316FC9F43 /* Pods-PostMiiTests.debug.xcconfig */,
+				B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9E2AE42E2AA81F7D00E66B9A = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +147,8 @@
 				9E2AE4532AA81F7E00E66B9A /* PostMiiTests */,
 				9E2AE45D2AA81F7E00E66B9A /* PostMiiUITests */,
 				9E2AE4382AA81F7D00E66B9A /* Products */,
+				9C904C778D92717244C6C990 /* Pods */,
+				6B9469B46FEEF5F361569FD3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,7 +264,7 @@
 				9E2AE4722AA8204A00E66B9A /* HomeVC.swift */,
 				9E2AE4762AA8205300E66B9A /* HomeView.swift */,
 				9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */,
-				9E2AE4872AA82E0500E66B9A /* TodoCardCell.swift */,
+				9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,9 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E2AE4642AA81F7E00E66B9A /* Build configuration list for PBXNativeTarget "PostMii" */;
 			buildPhases = (
+				D483006D51150EE29B9CF911 /* [CP] Check Pods Manifest.lock */,
 				9E2AE4332AA81F7D00E66B9A /* Sources */,
 				9E2AE4342AA81F7D00E66B9A /* Frameworks */,
 				9E2AE4352AA81F7D00E66B9A /* Resources */,
+				939120D832FADE0579B962D1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,6 +304,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E2AE4672AA81F7E00E66B9A /* Build configuration list for PBXNativeTarget "PostMiiTests" */;
 			buildPhases = (
+				B0F56A8FF44EE059880FDC11 /* [CP] Check Pods Manifest.lock */,
 				9E2AE44C2AA81F7E00E66B9A /* Sources */,
 				9E2AE44D2AA81F7E00E66B9A /* Frameworks */,
 				9E2AE44E2AA81F7E00E66B9A /* Resources */,
@@ -280,9 +323,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E2AE46A2AA81F7E00E66B9A /* Build configuration list for PBXNativeTarget "PostMiiUITests" */;
 			buildPhases = (
+				A4C85AC5BAB66938A7142D79 /* [CP] Check Pods Manifest.lock */,
 				9E2AE4562AA81F7E00E66B9A /* Sources */,
 				9E2AE4572AA81F7E00E66B9A /* Frameworks */,
 				9E2AE4582AA81F7E00E66B9A /* Resources */,
+				9806CA2D7C90D7F4B55A0955 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,6 +408,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		939120D832FADE0579B962D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PostMii/Pods-PostMii-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PostMii/Pods-PostMii-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PostMii/Pods-PostMii-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9806CA2D7C90D7F4B55A0955 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4C85AC5BAB66938A7142D79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PostMii-PostMiiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0F56A8FF44EE059880FDC11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PostMiiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D483006D51150EE29B9CF911 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PostMii-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9E2AE4332AA81F7D00E66B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -382,8 +530,8 @@
 				9E2AE4772AA8205300E66B9A /* HomeView.swift in Sources */,
 				9E2AE43B2AA81F7E00E66B9A /* AppDelegate.swift in Sources */,
 				9E2AE4812AA8289C00E66B9A /* AddTodoVM.swift in Sources */,
-				9E2AE4882AA82E0500E66B9A /* TodoCardCell.swift in Sources */,
 				9E2AE4842AA82B6800E66B9A /* TodoCardView.swift in Sources */,
+				9E8CAF8F2AC14A9C00481DAA /* HomeCalendarView.swift in Sources */,
 				9E2AE43D2AA81F7E00E66B9A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,6 +696,7 @@
 		};
 		9E2AE4652AA81F7E00E66B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D76516CEF2C6D9ACC210FC1C /* Pods-PostMii.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -576,6 +725,7 @@
 		};
 		9E2AE4662AA81F7E00E66B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7740B32EA14146221470DB63 /* Pods-PostMii.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -604,6 +754,7 @@
 		};
 		9E2AE4682AA81F7E00E66B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A35F3A2E76D1BB316FC9F43 /* Pods-PostMiiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -624,6 +775,7 @@
 		};
 		9E2AE4692AA81F7E00E66B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -644,6 +796,7 @@
 		};
 		9E2AE46B2AA81F7E00E66B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -662,6 +815,7 @@
 		};
 		9E2AE46C2AA81F7E00E66B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4282E5C898EBF267E8FDC2F4 /* Pods-PostMii-PostMiiUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

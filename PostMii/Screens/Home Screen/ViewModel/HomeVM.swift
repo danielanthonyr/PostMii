@@ -63,7 +63,7 @@ class HomeVM {
         return TodoCardCellVM(id: todo.id, name: todo.name, description: todo.description, date: todo.date)
     }
     
-    func getTodoCellVM(at indexPath: IndexPath) -> TodoCardCellVM {
-        return todoCardCellVMs[indexPath.row]
+    func getTodoCellVM(at index: Int) -> TodoCardCellVM {
+        return todoCardCellVMs[index]
     }
 }

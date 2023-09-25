@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Koloda
 
 class HomeView: UIView {
     
@@ -14,13 +15,18 @@ class HomeView: UIView {
     
     // MARK: - Views
     
-    private(set) var todoCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
+    private(set) var calendarView: HomeCalendarView = {
+        let view = HomeCalendarView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 8
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    private(set) var kolodaView: KolodaView = {
+        let kolodaView = KolodaView()
+        kolodaView.translatesAutoresizingMaskIntoConstraints = false
+        return kolodaView
     }()
     
     // MARK: - Initializers
@@ -41,15 +47,21 @@ class HomeView: UIView {
     func setupViews() {
         backgroundColor = .white
         
-        addSubview(todoCollectionView)
+        addSubview(calendarView)
+        addSubview(kolodaView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            todoCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
-            todoCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            todoCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            todoCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            calendarView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            calendarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            calendarView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            calendarView.heightAnchor.constraint(equalToConstant: 120),
+            
+            kolodaView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 16),
+            kolodaView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            kolodaView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            kolodaView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

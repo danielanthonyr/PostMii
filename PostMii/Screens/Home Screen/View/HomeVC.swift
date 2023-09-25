@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Koloda
 
 class HomeVC: UIViewController {
     
@@ -25,7 +26,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         setupSelf()
-        setupTodoCollectionView()
+        setupKolodaView()
         setupViewModel()
     }
     
@@ -34,21 +35,21 @@ class HomeVC: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     
-    func setupTodoCollectionView() {
-        views.todoCollectionView.delegate = self
-        views.todoCollectionView.dataSource = self
-        views.todoCollectionView.register(TodoCardCell.self, forCellWithReuseIdentifier: TodoCardCell.reuseIdentifier)
+    func setupKolodaView() {
+        views.kolodaView.delegate = self
+        views.kolodaView.dataSource = self
     }
     
     func setupViewModel() {
-        viewModel.getTodos()
         viewModel.reloadCollectionView = { [weak self] in
             guard let self = self else { return }
             
             DispatchQueue.main.async {
-                self.views.todoCollectionView.reloadData()
+                // Load tinder koloda cards here
+                self.views.kolodaView.reloadData()
             }
         }
+        viewModel.getTodos()
     }
     
     // MARK: - Methods
@@ -59,42 +60,72 @@ class HomeVC: UIViewController {
     }
 }
 
-// MARK: - UICollectionView
+// MARK: - KolodaView
 
-extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewRect = collectionView.frame
-        
-        return CGSize(width: collectionViewRect.width, height: 160)
+extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
+    func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
+        koloda.reloadData()
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+    func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
+        //UIApplication.shared.openURL(URL(string: "https://yalantis.com/")!)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
         return viewModel.todoCardCellVMs.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let todoCellVM = viewModel.getTodoCellVM(at: indexPath)
-        
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCardCell.reuseIdentifier, for: indexPath) as? TodoCardCell {
-            let layer = Gradients().allGradients[1]
-            layer.frame = cell.contentView.bounds
-            
-            cell.layer.insertSublayer(layer, at: 0)
-            cell.layer.cornerRadius = 10
-            cell.layer.masksToBounds = true
-            cell.cellVM = todoCellVM
-            return cell
-        }
-        
-        return UICollectionViewCell()
+    func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
+        return .fast
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("item selected")
+    func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
+        // view to return
+        let cellVM = viewModel.getTodoCellVM(at: index)
+        
+        let cardView = TodoCardView()
+        cardView.cellVM = cellVM
+        
+        return cardView
     }
 }
+
+// MARK: - UICollectionView
+
+//extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let collectionViewRect = collectionView.frame
+//
+//        return CGSize(width: collectionViewRect.width, height: 160)
+//    }
+//
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return viewModel.todoCardCellVMs.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let todoCellVM = viewModel.getTodoCellVM(at: indexPath)
+//
+//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodoCardCell.reuseIdentifier, for: indexPath) as? TodoCardCell {
+//            let layer = Gradients().allGradients[1]
+//            layer.frame = cell.contentView.bounds
+//
+//            cell.layer.insertSublayer(layer, at: 0)
+//            cell.layer.cornerRadius = 10
+//            cell.layer.masksToBounds = true
+//            cell.cellVM = todoCellVM
+//            return cell
+//        }
+//
+//        return UICollectionViewCell()
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("item selected")
+//    }
+//}
