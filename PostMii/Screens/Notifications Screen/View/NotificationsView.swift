@@ -1,23 +1,23 @@
 //
-//  AddTodoView.swift
+//  NotificationsView.swift
 //  PostMii
 //
-//  Created by Daniel Romero on 2023-09-05.
+//  Created by Daniel Romero on 2023-09-25.
 //
 
 import Foundation
 import UIKit
 
-class AddTodoView: UIView {
+class NotificationsView: UIView {
     
     // MARK: - Variables
     
     // MARK: - Views
     
-    private(set) var addTodoLabel: UILabel = {
+    private(set) var notificationsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Add TODO"
+        label.text = "Notifications"
         return label
     }()
     
@@ -39,13 +39,13 @@ class AddTodoView: UIView {
     func setupViews() {
         backgroundColor = .white
         
-        addSubview(addTodoLabel)
+        addSubview(notificationsLabel)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            addTodoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            addTodoLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            notificationsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            notificationsLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }

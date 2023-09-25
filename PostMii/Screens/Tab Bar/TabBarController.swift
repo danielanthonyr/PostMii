@@ -38,7 +38,16 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
         profileTab.tabBarItem = myProfileTabBarItem
         
-        self.viewControllers = [homeTab, profileTab]
+        let notificationsTab = UINavigationController(rootViewController: NotificationsVC())
+        let notificationsTabBarItem = UITabBarItem(
+            title: "Notifications",
+            image: UIImage(systemName: "bell.badge"),
+            selectedImage: UIImage(systemName: "bell.badge.fill")
+        )
+        
+        notificationsTab.tabBarItem = notificationsTabBarItem
+        
+        self.viewControllers = [homeTab, profileTab, notificationsTab]
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

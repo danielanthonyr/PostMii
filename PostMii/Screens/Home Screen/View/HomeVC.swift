@@ -57,7 +57,8 @@ class HomeVC: UIViewController {
     
     @objc func addTapped() {
         // TODO: present modal todo card VC
-        print("Add tapped")
+        let AddTodoVC = AddTodoVC()
+        self.present(AddTodoVC, animated: true, completion: nil)
     }
 }
 

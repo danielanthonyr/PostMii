@@ -1,19 +1,19 @@
 //
-//  AddTodoVC.swift
+//  NotificationsVC.swift
 //  PostMii
 //
-//  Created by Daniel Romero on 2023-09-05.
+//  Created by Daniel Romero on 2023-09-25.
 //
 
 import Foundation
 import UIKit
 
-class AddTodoVC: UIViewController {
+class NotificationsVC: UIViewController {
     
     // MARK: - Variables
     
-    private let views = AddTodoView()
-    private let viewModel = AddTodoVM()
+    private let views = NotificationsView()
+    private let viewModel = NotificationsVM()
     
     // MARK: - Lifecycle
     
@@ -30,7 +30,7 @@ class AddTodoVC: UIViewController {
     // MARK: - Methods
     
     private func setupSelf() {
-        self.title = "PostMii"
+        self.title = "Notifications"
     }
     
     private func setupViewModel() {

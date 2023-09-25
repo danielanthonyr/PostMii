@@ -36,6 +36,10 @@
 		9E8CAF9A2AC152B100481DAA /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF992AC152B100481DAA /* MyProfileVC.swift */; };
 		9E8CAF9C2AC152B800481DAA /* MyProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF9B2AC152B800481DAA /* MyProfileVM.swift */; };
 		9E8CAF9E2AC152C100481DAA /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF9D2AC152C100481DAA /* MyProfile.swift */; };
+		9E8CAFA42AC2119600481DAA /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAFA32AC2119600481DAA /* NotificationsVC.swift */; };
+		9E8CAFA62AC2119C00481DAA /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAFA52AC2119C00481DAA /* NotificationsView.swift */; };
+		9E8CAFA82AC211A600481DAA /* NotificationsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAFA72AC211A600481DAA /* NotificationsVM.swift */; };
+		9E8CAFAA2AC211B300481DAA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAFA92AC211B300481DAA /* Notification.swift */; };
 		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +97,10 @@
 		9E8CAF992AC152B100481DAA /* MyProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
 		9E8CAF9B2AC152B800481DAA /* MyProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVM.swift; sourceTree = "<group>"; };
 		9E8CAF9D2AC152C100481DAA /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
+		9E8CAFA32AC2119600481DAA /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		9E8CAFA52AC2119C00481DAA /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		9E8CAFA72AC211A600481DAA /* NotificationsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVM.swift; sourceTree = "<group>"; };
+		9E8CAFA92AC211B300481DAA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				9E8CAF942AC1519A00481DAA /* Tab Bar */,
+				9E8CAF9F2AC2117700481DAA /* Notifications Screen */,
 				9E8CAF902AC1516500481DAA /* My Profile Screen */,
 				9E2AE47B2AA8284700E66B9A /* Add Todo Screen */,
 				9E2AE4712AA8203B00E66B9A /* Home Screen */,
@@ -331,6 +340,41 @@
 				9E8CAF952AC151AF00481DAA /* TabBarController.swift */,
 			);
 			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		9E8CAF9F2AC2117700481DAA /* Notifications Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CAFA22AC2118C00481DAA /* Model */,
+				9E8CAFA12AC2118600481DAA /* ViewModel */,
+				9E8CAFA02AC2118200481DAA /* View */,
+			);
+			path = "Notifications Screen";
+			sourceTree = "<group>";
+		};
+		9E8CAFA02AC2118200481DAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CAFA32AC2119600481DAA /* NotificationsVC.swift */,
+				9E8CAFA52AC2119C00481DAA /* NotificationsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E8CAFA12AC2118600481DAA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CAFA72AC211A600481DAA /* NotificationsVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9E8CAFA22AC2118C00481DAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CAFA92AC211B300481DAA /* Notification.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -587,12 +631,16 @@
 				9E8CAF9A2AC152B100481DAA /* MyProfileVC.swift in Sources */,
 				9E2AE4732AA8204A00E66B9A /* HomeVC.swift in Sources */,
 				9E8CAF9C2AC152B800481DAA /* MyProfileVM.swift in Sources */,
+				9E8CAFA82AC211A600481DAA /* NotificationsVM.swift in Sources */,
 				9E2AE4772AA8205300E66B9A /* HomeView.swift in Sources */,
 				9E2AE43B2AA81F7E00E66B9A /* AppDelegate.swift in Sources */,
 				9E2AE4812AA8289C00E66B9A /* AddTodoVM.swift in Sources */,
+				9E8CAFAA2AC211B300481DAA /* Notification.swift in Sources */,
 				9E2AE4842AA82B6800E66B9A /* TodoCardView.swift in Sources */,
 				9E8CAF8F2AC14A9C00481DAA /* HomeCalendarView.swift in Sources */,
 				9E2AE43D2AA81F7E00E66B9A /* SceneDelegate.swift in Sources */,
+				9E8CAFA42AC2119600481DAA /* NotificationsVC.swift in Sources */,
+				9E8CAFA62AC2119C00481DAA /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
