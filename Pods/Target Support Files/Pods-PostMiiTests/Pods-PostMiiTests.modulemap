@@ -1,6 +1,0 @@
-framework module Pods_PostMiiTests {
-  umbrella header "Pods-PostMiiTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
