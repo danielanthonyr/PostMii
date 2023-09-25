@@ -50,6 +50,30 @@ class AddTodoView: UIView {
         return textfield
     }()
     
+    private(set) lazy var datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker(frame: .zero)
+        if #available(iOS 14, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        } else {
+            datePicker.datePickerMode = .date
+        }
+        
+        datePicker.timeZone = TimeZone.current
+        return datePicker
+    }()
+    
+    private(set) var createTodoButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Create TODO", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.borderWidth = 1.5
+        button.layer.cornerRadius = 10.0
+        button.layer.masksToBounds = true
+        return button
+    }()
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -74,16 +98,22 @@ class AddTodoView: UIView {
         
         addSubview(createTodoLabel)
         addSubview(textFieldStackView)
+        addSubview(createTodoButton)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            createTodoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            createTodoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             createTodoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             textFieldStackView.topAnchor.constraint(equalTo: createTodoLabel.bottomAnchor, constant: 16),
             textFieldStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            textFieldStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            textFieldStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
+            createTodoButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            createTodoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            createTodoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            createTodoButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }

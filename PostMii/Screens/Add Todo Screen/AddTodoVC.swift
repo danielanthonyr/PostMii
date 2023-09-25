@@ -33,10 +33,25 @@ class AddTodoVC: UIViewController {
         views.todoNameTextField.delegate = self
         views.todoDateTextField.delegate = self
         views.todoDescriptionTextField.delegate = self
+        
+        views.todoDateTextField.inputView = views.datePicker
+        views.datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
+        views.createTodoButton.addTarget(self, action: #selector(createTodoButtonClicked(sender:)), for: .touchUpInside)
     }
     
     private func setupViewModel() {
         
+    }
+    
+    @objc func handleDatePicker(sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        views.todoDateTextField.text = dateFormatter.string(from: sender.date)
+        views.todoDateTextField.resignFirstResponder()
+    }
+    
+    @objc func createTodoButtonClicked(sender: UIDatePicker) {
+        self.dismiss(animated: true)
     }
 }
 
