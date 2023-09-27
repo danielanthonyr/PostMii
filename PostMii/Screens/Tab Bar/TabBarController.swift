@@ -10,6 +10,12 @@ import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
+    // MARK: - Variables
+    
+    var userUID: String!
+    
+    // MARK: - Lifycycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

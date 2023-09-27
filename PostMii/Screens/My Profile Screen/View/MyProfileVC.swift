@@ -45,13 +45,17 @@ class MyProfileVC: UIViewController {
         do {
             try Auth.auth().signOut()
             
-            let loginVC = LoginVC()
-            self.navigationController?.pushViewController(loginVC, animated: true)
-            
+            redirectToLoginPage()
             // User is signed out
             // You can perform any additional actions here, such as navigating to a login screen
         } catch let signOutError as NSError {
             print("Error signing out: \(signOutError)")
         }
+    }
+    
+    private func redirectToLoginPage() {
+        let loginVC = LoginVC()
+        
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(loginVC)
     }
 }

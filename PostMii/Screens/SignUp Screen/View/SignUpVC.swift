@@ -42,41 +42,26 @@ class SignUpVC: UIViewController {
     @objc func signUpButtonTapped(sender: UIButton) {
         guard let userEmailString = views.emailTextfield.text, !userEmailString.isEmpty else {
             // show error message
-            showTextFieldValidationError(with: "Email")
+            self.displayAlertMessage(title: "Missing Entry", message: "Please fill out the email field.")
             return
         }
         
         guard let todoPasswordString = views.passwordTextfield.text, !todoPasswordString.isEmpty else {
-            showTextFieldValidationError(with: "Password")
+            self.displayAlertMessage(title: "Missing Entry", message: "Please fill out the password field.")
             return
         }
         
         guard let confirmPasswordString = views.confirmPasswordTextfield.text, !confirmPasswordString.isEmpty else {
-            showTextFieldValidationError(with: "", passwordConfirmationError: true)
+            self.displayAlertMessage(
+                title: "Password Confirmation Error",
+                message: "Passwords do not match. Please make sure passwords are identical"
+            )
             return
         }
         
         let email = userEmailString
         let password = todoPasswordString
         createUser(email: email, password: password)
-    }
-    
-    func showTextFieldValidationError(with string: String, passwordConfirmationError: Bool = false) {
-        // create the alert
-        var errorTitle = "Missing Entry"
-        var errorMessage = "Please fill out the \(string) field."
-        if passwordConfirmationError {
-            errorTitle = "Password Confirmation Errror"
-            errorMessage = "Passwords do not match. Please make sure passwords are identical"
-        }
-        
-        let alert = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: UIAlertController.Style.alert)
-        
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
     }
     
     func createUser(email: String, password: String) {
@@ -88,16 +73,20 @@ class SignUpVC: UIViewController {
                     // [START_EXCLUDE]
                     self.hideSpinner()
                     guard let user = authResult?.user, error == nil else {
-                        self.showMessagePrompt(message: error!.localizedDescription)
+                        self.displayAlertMessage(title: "Account Creation Error", message: "\(error?.localizedDescription)")
                         return
                     }
-                    print("\(user.email!) created")
                     
-                    // Navigate to home screen
-                    self.navigationController?.popViewController(animated: true)
+                    self.redirectToHomeTabBarController(userUID: user.uid)
                 }
             }
         }
+    }
+    
+    private func redirectToHomeTabBarController(userUID: String) {
+        let TabBarController = TabBarController()
+        
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(TabBarController, userId: userUID)
     }
     
     func showSpinner() {
@@ -106,16 +95,5 @@ class SignUpVC: UIViewController {
     
     func hideSpinner() {
         views.spinner.stopAnimating()
-    }
-    
-    func showMessagePrompt(message: String) {
-        // create the alert
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
     }
 }

@@ -14,7 +14,7 @@ class LoginView: UIView {
     
     // MARK: - Views
     
-    private(set) var usernameTextfield: UITextField = {
+    private(set) var emailTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Email"
@@ -70,7 +70,7 @@ class LoginView: UIView {
     func setupViews() {
         backgroundColor = .white
         
-        addSubview(usernameTextfield)
+        addSubview(emailTextField)
         addSubview(passwordTextfield)
         addSubview(loginButton)
         addSubview(createNewAccountButton)
@@ -78,12 +78,12 @@ class LoginView: UIView {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            usernameTextfield.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            usernameTextfield.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            usernameTextfield.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            usernameTextfield.heightAnchor.constraint(equalToConstant: 50),
+            emailTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            emailTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            emailTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            emailTextField.heightAnchor.constraint(equalToConstant: 50),
             
-            passwordTextfield.topAnchor.constraint(equalTo: usernameTextfield.bottomAnchor, constant: 16),
+            passwordTextfield.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
             passwordTextfield.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             passwordTextfield.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             passwordTextfield.heightAnchor.constraint(equalToConstant: 50),

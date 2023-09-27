@@ -66,6 +66,7 @@
 		9E8CAFFE2AC3EDE300481DAA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAFFD2AC3EDE300481DAA /* SignUpView.swift */; };
 		9E8CB0002AC3EDEA00481DAA /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAFFF2AC3EDEA00481DAA /* SignUpVC.swift */; };
 		9E8CB0022AC3EDEF00481DAA /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB0012AC3EDEF00481DAA /* SignUpVM.swift */; };
+		9E8CB0042AC4BD5B00481DAA /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */; };
 		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 		9E8CAFFD2AC3EDE300481DAA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		9E8CAFFF2AC3EDEA00481DAA /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		9E8CB0012AC3EDEF00481DAA /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
+		9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +282,7 @@
 				9E4583972AA900B900822721 /* Gradients.swift */,
 				9E4583992AA9033100822721 /* UIColor+HexConversion.swift */,
 				9E4583A02AB02D8200822721 /* DateFormatter.swift */,
+				9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				9E2AE4732AA8204A00E66B9A /* HomeVC.swift in Sources */,
 				9E8CB0022AC3EDEF00481DAA /* SignUpVM.swift in Sources */,
 				9E8CAFF42AC3D82900481DAA /* LoginVC.swift in Sources */,
+				9E8CB0042AC4BD5B00481DAA /* UIViewController+Alert.swift in Sources */,
 				9E8CAF9C2AC152B800481DAA /* MyProfileVM.swift in Sources */,
 				9E8CAFA82AC211A600481DAA /* NotificationsVM.swift in Sources */,
 				9E2AE4772AA8205300E66B9A /* HomeView.swift in Sources */,

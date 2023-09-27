@@ -21,14 +21,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        var rootVC = UIViewController()
-        
         if Auth.auth().currentUser?.uid != nil {
-            rootVC = TabBarController()
-        } else {
-            rootVC = UINavigationController(rootViewController: LoginVC())
+            let rootVC = TabBarController()
+            rootVC.userUID = Auth.auth().currentUser?.uid
+            window?.rootViewController = rootVC
+            window?.makeKeyAndVisible()
+            return
         }
         
+        let rootVC = UINavigationController(rootViewController: LoginVC())
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }
@@ -64,6 +65,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
-
+    // MARK: - Helper functions
+    
+    func setRootViewController(_ vc: UIViewController, userId: String? = nil) {
+        if let window = self.window {
+            // if we are logging in, pass the userUID
+            if let tabBarController = vc as? TabBarController {
+                tabBarController.userUID = userId
+            }
+            
+            window.rootViewController = vc
+            
+            UIView.transition(with: window,
+                                        duration: 0.8,
+                                        options: .transitionCurlDown,
+                                        animations: nil)
+        }
+    }
 }
 

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class LoginVC: UIViewController {
     
@@ -40,9 +41,9 @@ class LoginVC: UIViewController {
     // MARK: - Methods
     
     @objc func loginButtonTapped(sender: UIButton) {
-        guard let todoUsernameString = views.usernameTextfield.text, !todoUsernameString.isEmpty else {
+        guard let todoEmailString = views.emailTextField.text, !todoEmailString.isEmpty else {
             // show error message
-            showTextFieldValidationError(with: "Username")
+            showTextFieldValidationError(with: "Email")
             return
         }
         
@@ -51,9 +52,9 @@ class LoginVC: UIViewController {
             return
         }
         
-        let username = todoUsernameString
+        let email = todoEmailString
         let password = todoPasswordString
-        loginFirebase(username: username, password: password)
+        signIn(email: email, password: password)
     }
     
     @objc func createNewAccountButtonTapped(sender: UIButton) {
@@ -72,7 +73,41 @@ class LoginVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func loginFirebase(username: String, password: String) {
+    func signIn(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+            if let error = error {
+                let err = error as NSError
+                switch err.code {
+                case AuthErrorCode.wrongPassword.rawValue:
+                    self.displayAlertMessage(title: "Password", message: "Invalid Password")
+                case AuthErrorCode.invalidEmail.rawValue:
+                    self.displayAlertMessage(title: "Email", message: "Invalid Email")
+                case AuthErrorCode.userNotFound.rawValue:
+                    self.displayAlertMessage(title: "User Not Found",
+                                             message: "Account does not exist. Please sign up first")
+                case AuthErrorCode.networkError.rawValue:
+                    self.displayAlertMessage(title: "Network Issue",
+                                             message: "Network Error, please check your internet connection")
+                default:
+                    print(err.code)
+                    self.displayAlertMessage(title: "Sign In Error",
+                                             message: "Sign in error. Please report to development team")
+                }
+                
+            } else {
+                // The user is signed in; perform any required actions (e.g., navigate to the main screen)
+                if let userUID = authResult?.user.uid {
+                    self.redirectToHomeTabBarController(userUID: userUID)
+                } else {
+                    print("No user UID")
+                }
+            }
+        }
+    }
+    
+    private func redirectToHomeTabBarController(userUID: String) {
+        let TabBarController = TabBarController()
         
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(TabBarController, userId: userUID)
     }
 }
