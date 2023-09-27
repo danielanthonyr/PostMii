@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class MyProfileVC: UIViewController {
     
@@ -32,9 +33,25 @@ class MyProfileVC: UIViewController {
     
     private func setupSelf() {
         self.title = "My Profile"
+        
+        views.logoutButton.addTarget(self, action: #selector(logoutButtonPressed(sender:)), for: .touchUpInside)
     }
     
     private func setupViewModel() {
         
+    }
+    
+    @objc func logoutButtonPressed(sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+            
+            let loginVC = LoginVC()
+            self.navigationController?.pushViewController(loginVC, animated: true)
+            
+            // User is signed out
+            // You can perform any additional actions here, such as navigating to a login screen
+        } catch let signOutError as NSError {
+            print("Error signing out: \(signOutError)")
+        }
     }
 }

@@ -30,6 +30,7 @@ class LoginVC: UIViewController {
     func setupSelf() {
         self.title = "Login"
         self.views.loginButton.addTarget(self, action: #selector(loginButtonTapped(sender:)), for: .touchUpInside)
+        self.views.createNewAccountButton.addTarget(self, action: #selector(createNewAccountButtonTapped(sender:)), for: .touchUpInside)
     }
     
     func setupViewModel() {
@@ -53,6 +54,11 @@ class LoginVC: UIViewController {
         let username = todoUsernameString
         let password = todoPasswordString
         loginFirebase(username: username, password: password)
+    }
+    
+    @objc func createNewAccountButtonTapped(sender: UIButton) {
+        let signUpVC = SignUpVC()
+        self.navigationController?.pushViewController(signUpVC, animated: true)
     }
     
     func showTextFieldValidationError(with string: String) {

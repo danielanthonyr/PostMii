@@ -21,6 +21,13 @@ class MyProfileView: UIView {
         return label
     }()
     
+    private(set) var logoutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Log Out", for: .normal)
+        return button
+    }()
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -37,15 +44,21 @@ class MyProfileView: UIView {
     // MARK: - Methods
     
     private func setupViews() {
-        backgroundColor = .cyan
+        backgroundColor = .systemBackground
         
         addSubview(profileLabel)
+        addSubview(logoutButton)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             profileLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            profileLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+            profileLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            logoutButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            logoutButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            logoutButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            logoutButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 }

@@ -17,7 +17,7 @@ class LoginView: UIView {
     private(set) var usernameTextfield: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Username"
+        textField.placeholder = "Email"
         return textField
     }()
     
@@ -29,9 +29,16 @@ class LoginView: UIView {
     }()
     
     private(set) var loginButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Log in", for: .normal)
+        return button
+    }()
+    
+    private(set) var createNewAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Create new account", for: .normal)
         return button
     }()
     
@@ -55,6 +62,8 @@ class LoginView: UIView {
         
         addSubview(usernameTextfield)
         addSubview(passwordTextfield)
+        addSubview(loginButton)
+        addSubview(createNewAccountButton)
     }
     
     func setupConstraints() {
@@ -69,10 +78,15 @@ class LoginView: UIView {
             passwordTextfield.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             passwordTextfield.heightAnchor.constraint(equalToConstant: 50),
             
-            loginButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            loginButton.bottomAnchor.constraint(equalTo: passwordTextfield.bottomAnchor, constant: 32),
             loginButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            createNewAccountButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            createNewAccountButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            createNewAccountButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            createNewAccountButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 }

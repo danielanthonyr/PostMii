@@ -32,7 +32,7 @@ class SignUpView: UIView {
     
     private(set) var emailTextfield: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Username"
+        textField.placeholder = "Email"
         return textField
     }()
     
@@ -44,12 +44,12 @@ class SignUpView: UIView {
     
     private(set) var confirmPasswordTextfield: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Password"
+        textField.placeholder = "Confirm Password"
         return textField
     }()
     
     private(set) var signUpButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign Up", for: .normal)
         return button
