@@ -55,7 +55,8 @@ class MyProfileVC: UIViewController {
     
     private func redirectToLoginPage() {
         let loginVC = LoginVC()
+        let rootVC = UINavigationController(rootViewController: loginVC)
         
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(loginVC)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(rootVC)
     }
 }

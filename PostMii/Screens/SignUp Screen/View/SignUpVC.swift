@@ -53,6 +53,14 @@ class SignUpVC: UIViewController {
         
         guard let confirmPasswordString = views.confirmPasswordTextfield.text, !confirmPasswordString.isEmpty else {
             self.displayAlertMessage(
+                title: "Missing Entry",
+                message: "Please fill out the confirm password field."
+            )
+            return
+        }
+        
+        guard todoPasswordString == confirmPasswordString else {
+            self.displayAlertMessage(
                 title: "Password Confirmation Error",
                 message: "Passwords do not match. Please make sure passwords are identical"
             )
@@ -68,17 +76,31 @@ class SignUpVC: UIViewController {
         showSpinner()
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error as? NSError {
-                Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                    // [START_EXCLUDE]
-                    self.hideSpinner()
-                    guard let user = authResult?.user, error == nil else {
-                        self.displayAlertMessage(title: "Account Creation Error", message: "\(error?.localizedDescription)")
-                        return
-                    }
-                    
-                    self.redirectToHomeTabBarController(userUID: user.uid)
+            
+            self.hideSpinner()
+            
+            if let error = error {
+                let err = error as NSError
+                switch err.code {
+                case AuthErrorCode.operationNotAllowed.rawValue:
+                    self.displayAlertMessage(title: "Operation Not Allowed", message: "Sign Up service is disabled")
+                case AuthErrorCode.emailAlreadyInUse.rawValue:
+                    self.displayAlertMessage(title: "Email Already in use", message: "Email is already in use")
+                case AuthErrorCode.invalidEmail.rawValue:
+                    self.displayAlertMessage(title: "Invalid Email",
+                                             message: "Invalid Email. Please enter a valid email")
+                case AuthErrorCode.weakPassword.rawValue:
+                    self.displayAlertMessage(title: "Weak Password",
+                                             message: "Weak Password. Please choose a better password")
+                default:
+                    print(err.code)
+                    self.displayAlertMessage(title: "Sign Up Error",
+                                             message: "Sign up error. Please report to development team")
                 }
+            }
+            
+            if let user = authResult?.user {
+                self.redirectToHomeTabBarController(userUID: user.uid)
             }
         }
     }

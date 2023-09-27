@@ -39,12 +39,14 @@ class SignUpView: UIView {
     private(set) var passwordTextfield: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Password"
+        textField.isSecureTextEntry = true
         return textField
     }()
     
     private(set) var confirmPasswordTextfield: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Confirm Password"
+        textField.isSecureTextEntry = true
         return textField
     }()
     
