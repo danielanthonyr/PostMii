@@ -45,13 +45,44 @@ class AddTodoVC: UIViewController {
     
     @objc func handleDatePicker(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy hh:mm a"
         views.todoDateTextField.text = dateFormatter.string(from: sender.date)
+        viewModel.updateTodoDate(date: sender.date)
         views.todoDateTextField.resignFirstResponder()
     }
     
-    @objc func createTodoButtonClicked(sender: UIDatePicker) {
+    @objc func createTodoButtonClicked(sender: UIButton) {
+        guard let todoNameText = views.todoNameTextField.text, !todoNameText.isEmpty else {
+            // show error message
+            showTextFieldValidationError(with: "Todo Name")
+            return
+        }
+        
+        guard let todoDateText = views.todoDateTextField.text, !todoDateText.isEmpty else {
+            showTextFieldValidationError(with: "Todo Date")
+            return
+        }
+        
+        guard let todoDescriptionText = views.todoDescriptionTextField.text, !todoDescriptionText.isEmpty else {
+            showTextFieldValidationError(with: "Todo Description")
+            return
+        }
+        
+        // Add todo to the backend
+        viewModel.saveTodoToFirebase(name: todoNameText, description: todoDescriptionText, date: viewModel.todo.date)
+        
         self.dismiss(animated: true)
+    }
+    
+    func showTextFieldValidationError(with string: String) {
+        // create the alert
+        let alert = UIAlertController(title: "Missing Entry", message: "Please fill out the \(string) field.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

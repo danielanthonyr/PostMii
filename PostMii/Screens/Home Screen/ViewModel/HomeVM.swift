@@ -14,7 +14,7 @@ class HomeVM {
     var reloadCollectionView: (() -> Void)?
     
     private let todoCardService: TodoServiceProtocol
-    private(set) var todoCards: [TodoCard]
+    private(set) var todoCards: [Todo]
     private(set) var todoCardCellVMs: [TodoCardCellVM] {
         didSet {
             reloadCollectionView?()
@@ -25,7 +25,7 @@ class HomeVM {
     
     init(service: TodoServiceProtocol = TodoService()) {
         self.todoCardService = service
-        self.todoCards = [TodoCard]()
+        self.todoCards = [Todo]()
         self.todoCardCellVMs = [TodoCardCellVM]()
     }
     
@@ -46,7 +46,7 @@ class HomeVM {
         }
     }
     
-    func setupData(todos: [TodoCard]) {
+    func setupData(todos: [Todo]) {
         self.todoCards = todos
         
         // create temp todoCardCellVM so we don't trigger the didSet multiple times for todoCardCellVMs
@@ -59,8 +59,8 @@ class HomeVM {
         self.todoCardCellVMs = tempTodoCardCellVMs // triggers the didSet
     }
     
-    func createTodoCellVM(todo: TodoCard) -> TodoCardCellVM {
-        return TodoCardCellVM(id: todo.id, name: todo.name, description: todo.description, date: todo.date)
+    func createTodoCellVM(todo: Todo) -> TodoCardCellVM {
+        return TodoCardCellVM(id: todo.id ?? UUID().uuidString, name: todo.name, description: todo.description, date: todo.date)
     }
     
     func getTodoCellVM(at index: Int) -> TodoCardCellVM {
