@@ -53,18 +53,17 @@ class AddTodoVC: UIViewController {
     
     @objc func createTodoButtonClicked(sender: UIButton) {
         guard let todoNameText = views.todoNameTextField.text, !todoNameText.isEmpty else {
-            // show error message
-            showTextFieldValidationError(with: "Todo Name")
+            self.displayAlertMessage(title: "Missing Name", message: "Please fill out the Todo Name field")
             return
         }
         
         guard let todoDateText = views.todoDateTextField.text, !todoDateText.isEmpty else {
-            showTextFieldValidationError(with: "Todo Date")
+            self.displayAlertMessage(title: "Missing Date", message: "Please fill out the Todo Date field")
             return
         }
         
         guard let todoDescriptionText = views.todoDescriptionTextField.text, !todoDescriptionText.isEmpty else {
-            showTextFieldValidationError(with: "Todo Description")
+            self.displayAlertMessage(title: "Missing Description", message: "Please fill out the Todo Description field")
             return
         }
         
@@ -72,17 +71,6 @@ class AddTodoVC: UIViewController {
         viewModel.saveTodoToFirebase(name: todoNameText, description: todoDescriptionText, date: viewModel.todo.date)
         
         self.dismiss(animated: true)
-    }
-    
-    func showTextFieldValidationError(with string: String) {
-        // create the alert
-        let alert = UIAlertController(title: "Missing Entry", message: "Please fill out the \(string) field.", preferredStyle: UIAlertController.Style.alert)
-        
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
     }
 }
 
