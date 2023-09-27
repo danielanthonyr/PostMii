@@ -28,6 +28,10 @@ class SignUpVC: UIViewController {
         setupSelf()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    
     func setupSelf() {
         self.title = "Sign Up"
         self.views.signUpButton.addTarget(self, action: #selector(signUpButtonTapped(sender:)), for: .touchUpInside)

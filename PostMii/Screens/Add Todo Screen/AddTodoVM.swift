@@ -35,21 +35,30 @@ class AddTodoVM {
         self.todo = Todo(name: name, description: description, date: todo.date)
         let formattedStringDate = dateFormatter.string(from: date)
         
-        let ref = Database.database().reference()
-        let key = ref.child("todoList").childByAutoId().key
-        
-        let dictionaryTodo = [ "name"    : todo.name ,
-                               "date" : formattedStringDate,
-                               "description"    : todo.description ]
-        
-        let childUpdates = ["/todoList/\(key)": dictionaryTodo]
-        ref.updateChildValues(childUpdates, withCompletionBlock: { (error, ref) -> Void in
-            if let error = error {
-                print("error saving todo to DB")
-                return
+        if let user = Auth.auth().currentUser {
+            
+            let userUID = user.uid
+            
+            // Create a reference to the Firebase Realtime Database
+            let databaseReference = Database.database().reference()
+            
+            let todoData = [ "name"    : todo.name ,
+                                   "date" : formattedStringDate,
+                                   "description"    : todo.description ]
+            
+            databaseReference.child("users").child(userUID).child("todos").childByAutoId().setValue(todoData) { (error, reference) in
+                if let error = error {
+                    // Handle the error if it occurs
+                    print("Error adding todo: \(error.localizedDescription)")
+                } else {
+                    // Todo added successfully
+                    print("Todo added to Firebase Database")
+                }
             }
-            self.finishedSavingTodo?()
-        })
+            
+        } else {
+            print("User is not authenticated")
+        }
     }
     
     func updateTodoDate(date: Date) {
