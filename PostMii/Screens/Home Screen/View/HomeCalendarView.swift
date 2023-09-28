@@ -47,7 +47,7 @@ class HomeCalendarView: UIView {
     // MARK: - Methods
     
     func setupViews() {
-        backgroundColor = .cyan
+        backgroundColor = .white
         
         addSubview(dateLabel)
         addSubview(chevronImageView)

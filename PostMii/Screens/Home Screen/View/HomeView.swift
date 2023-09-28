@@ -45,7 +45,7 @@ class HomeView: UIView {
     // MARK: - Methods
     
     func setupViews() {
-        backgroundColor = .white
+        backgroundColor = .systemGray6
         
         addSubview(calendarView)
         addSubview(kolodaView)
@@ -61,7 +61,7 @@ class HomeView: UIView {
             kolodaView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 16),
             kolodaView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             kolodaView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            kolodaView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            kolodaView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
         ])
     }
 }

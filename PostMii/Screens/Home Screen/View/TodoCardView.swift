@@ -27,7 +27,7 @@ class TodoCardView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .lightGray
+        imageView.backgroundColor = Colors().midnightGrey1
         return imageView
     }()
     
@@ -42,14 +42,16 @@ class TodoCardView: UIView {
     private(set) var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = AppFont.regular.size(20)
+        label.font = AppFont.bold.size(20)
+        label.textColor = .white
         return label
     }()
     
     private(set) var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = AppFont.regular.size(20)
+        label.font = AppFont.bold.size(20)
+        label.textColor = .white
         return label
     }()
     
@@ -59,7 +61,8 @@ class TodoCardView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.sizeToFit()
-        label.font = AppFont.regular.size(16)
+        label.font = AppFont.semiBold.size(16)
+        label.textColor = .white
         return label
     }()
     
@@ -105,9 +108,9 @@ class TodoCardView: UIView {
             cardImageView.topAnchor.constraint(equalTo: topAnchor),
             cardImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             cardImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cardImageView.heightAnchor.constraint(equalToConstant: 100),
+            cardImageView.heightAnchor.constraint(equalTo: heightAnchor),
             
-            nameAndDateStackview.topAnchor.constraint(equalTo: cardImageView.bottomAnchor, constant: 16),
+            nameAndDateStackview.topAnchor.constraint(equalTo: cardImageView.centerYAnchor, constant: 16),
             nameAndDateStackview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             nameAndDateStackview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
@@ -115,5 +118,7 @@ class TodoCardView: UIView {
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
+        
+        bringSubviewToFront(nameAndDateStackview)
     }
 }

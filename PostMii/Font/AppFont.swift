@@ -14,7 +14,7 @@ enum AppFont: String {
     case regular = "Regular"
     case medium = "Medium"
     case bold = "Bold"
-    case semiBold = "Semi-Bold"
+    case semiBold = "SemiBold"
 
     func size(_ size: CGFloat) -> UIFont {
         if let font = UIFont(name: fullFontName, size: size + 1.0) {

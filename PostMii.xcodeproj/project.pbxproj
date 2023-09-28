@@ -74,6 +74,7 @@
 		9E8CB0132AC50F4300481DAA /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E8CB0122AC50F4300481DAA /* OpenSans-Medium.ttf */; };
 		9E8CB0152AC50F4D00481DAA /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E8CB0142AC50F4D00481DAA /* OpenSans-Bold.ttf */; };
 		9E8CB01B2AC5163F00481DAA /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB01A2AC5163F00481DAA /* AppFont.swift */; };
+		9E8CB01D2AC534CD00481DAA /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB01C2AC534CD00481DAA /* ThemeColors.swift */; };
 		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +153,7 @@
 		9E8CB0122AC50F4300481DAA /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
 		9E8CB0142AC50F4D00481DAA /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		9E8CB01A2AC5163F00481DAA /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		9E8CB01C2AC534CD00481DAA /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +302,7 @@
 				9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */,
 				9E8CB0052AC4D24200481DAA /* FirebaseHelper.swift */,
 				9E8CB0072AC4D95B00481DAA /* FirebaseError.swift */,
+				9E8CB01C2AC534CD00481DAA /* ThemeColors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -834,6 +837,7 @@
 				9E2AE4842AA82B6800E66B9A /* TodoCardView.swift in Sources */,
 				9E8CAF8F2AC14A9C00481DAA /* HomeCalendarView.swift in Sources */,
 				9E8CAFFE2AC3EDE300481DAA /* SignUpView.swift in Sources */,
+				9E8CB01D2AC534CD00481DAA /* ThemeColors.swift in Sources */,
 				9E2AE43D2AA81F7E00E66B9A /* SceneDelegate.swift in Sources */,
 				9E8CAFA42AC2119600481DAA /* NotificationsVC.swift in Sources */,
 				9E8CAFA62AC2119C00481DAA /* NotificationsView.swift in Sources */,
