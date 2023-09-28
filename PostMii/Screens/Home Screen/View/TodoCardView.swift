@@ -28,6 +28,7 @@ class TodoCardView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.backgroundColor = Colors().midnightGrey1
+        imageView.tintColor = .systemGray2
         return imageView
     }()
     
