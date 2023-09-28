@@ -19,6 +19,7 @@ class HomeCalendarView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Mon, 24 Sep"
+        label.font = AppFont.bold.size(24)
         return label
     }()
     

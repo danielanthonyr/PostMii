@@ -42,12 +42,14 @@ class TodoCardView: UIView {
     private(set) var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.font = AppFont.regular.size(20)
         return label
     }()
     
     private(set) var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.font = AppFont.regular.size(20)
         return label
     }()
     
@@ -57,6 +59,7 @@ class TodoCardView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.sizeToFit()
+        label.font = AppFont.regular.size(16)
         return label
     }()
     

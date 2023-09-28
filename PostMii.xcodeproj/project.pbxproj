@@ -69,6 +69,11 @@
 		9E8CB0042AC4BD5B00481DAA /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */; };
 		9E8CB0062AC4D24200481DAA /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB0052AC4D24200481DAA /* FirebaseHelper.swift */; };
 		9E8CB0082AC4D95B00481DAA /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB0072AC4D95B00481DAA /* FirebaseError.swift */; };
+		9E8CB00F2AC50F3100481DAA /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E8CB00E2AC50F3100481DAA /* OpenSans-Regular.ttf */; };
+		9E8CB0112AC50F3A00481DAA /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E8CB0102AC50F3A00481DAA /* OpenSans-SemiBold.ttf */; };
+		9E8CB0132AC50F4300481DAA /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E8CB0122AC50F4300481DAA /* OpenSans-Medium.ttf */; };
+		9E8CB0152AC50F4D00481DAA /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E8CB0142AC50F4D00481DAA /* OpenSans-Bold.ttf */; };
+		9E8CB01B2AC5163F00481DAA /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB01A2AC5163F00481DAA /* AppFont.swift */; };
 		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +147,11 @@
 		9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		9E8CB0052AC4D24200481DAA /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		9E8CB0072AC4D95B00481DAA /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
+		9E8CB00E2AC50F3100481DAA /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		9E8CB0102AC50F3A00481DAA /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		9E8CB0122AC50F4300481DAA /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
+		9E8CB0142AC50F4D00481DAA /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		9E8CB01A2AC5163F00481DAA /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +251,7 @@
 		9E2AE4392AA81F7D00E66B9A /* PostMii */ = {
 			isa = PBXGroup;
 			children = (
+				9E8CB0092AC5093600481DAA /* Font */,
 				9E2AE46F2AA81F9600E66B9A /* Screens */,
 				9E2AE46E2AA81F9000E66B9A /* Helpers */,
 				9E2AE46D2AA81F8900E66B9A /* Services */,
@@ -511,6 +522,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9E8CB0092AC5093600481DAA /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				9E8CB00E2AC50F3100481DAA /* OpenSans-Regular.ttf */,
+				9E8CB0102AC50F3A00481DAA /* OpenSans-SemiBold.ttf */,
+				9E8CB0122AC50F4300481DAA /* OpenSans-Medium.ttf */,
+				9E8CB0142AC50F4D00481DAA /* OpenSans-Bold.ttf */,
+				9E8CB01A2AC5163F00481DAA /* AppFont.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -642,8 +665,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E8CB0132AC50F4300481DAA /* OpenSans-Medium.ttf in Resources */,
+				9E8CB0152AC50F4D00481DAA /* OpenSans-Bold.ttf in Resources */,
 				9E2AE44A2AA81F7E00E66B9A /* LaunchScreen.storyboard in Resources */,
 				9E2AE4472AA81F7E00E66B9A /* Assets.xcassets in Resources */,
+				9E8CB0112AC50F3A00481DAA /* OpenSans-SemiBold.ttf in Resources */,
+				9E8CB00F2AC50F3100481DAA /* OpenSans-Regular.ttf in Resources */,
 				9E8CAFAC2AC3874800481DAA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,6 +821,7 @@
 				9E2AE4732AA8204A00E66B9A /* HomeVC.swift in Sources */,
 				9E8CB0022AC3EDEF00481DAA /* SignUpVM.swift in Sources */,
 				9E8CAFF42AC3D82900481DAA /* LoginVC.swift in Sources */,
+				9E8CB01B2AC5163F00481DAA /* AppFont.swift in Sources */,
 				9E8CB0042AC4BD5B00481DAA /* UIViewController+Alert.swift in Sources */,
 				9E8CAF9C2AC152B800481DAA /* MyProfileVM.swift in Sources */,
 				9E8CAFA82AC211A600481DAA /* NotificationsVM.swift in Sources */,
