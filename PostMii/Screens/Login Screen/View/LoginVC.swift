@@ -28,13 +28,13 @@ class LoginVC: UIViewController {
         setupSelf()
     }
     
-    func setupSelf() {
+    private func setupSelf() {
         self.title = "Login"
         self.views.loginButton.addTarget(self, action: #selector(loginButtonTapped(sender:)), for: .touchUpInside)
         self.views.createNewAccountButton.addTarget(self, action: #selector(createNewAccountButtonTapped(sender:)), for: .touchUpInside)
     }
     
-    func setupViewModel() {
+    private func setupViewModel() {
         
     }
     

@@ -46,14 +46,18 @@ class HomeCalendarView: UIView {
     
     // MARK: - Methods
     
-    func setupViews() {
+    func setupDateLabel(with date: Date) {
+        dateLabel.text = DateFormatter().getDayOfMonthAndMonth(from: date)
+    }
+    
+    private func setupViews() {
         backgroundColor = .white
         
         addSubview(dateLabel)
         addSubview(chevronImageView)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             dateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

@@ -91,7 +91,7 @@ class TodoCardView: UIView {
         self.descriptionLabel.text = todoCardCellVM.description
     }
     
-    func setupViews() {
+    private func setupViews() {
         backgroundColor = .white
         layer.cornerRadius = 8
         layer.masksToBounds = true
@@ -104,7 +104,7 @@ class TodoCardView: UIView {
         addSubview(descriptionLabel)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             cardImageView.topAnchor.constraint(equalTo: topAnchor),
             cardImageView.leadingAnchor.constraint(equalTo: leadingAnchor),

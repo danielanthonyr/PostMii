@@ -26,6 +26,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         setupSelf()
+        setupCalendarView()
         setupKolodaView()
         setupViewModel()
     }
@@ -36,12 +37,16 @@ class HomeVC: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     
-    func setupKolodaView() {
+    private func setupKolodaView() {
         views.kolodaView.delegate = self
         views.kolodaView.dataSource = self
     }
     
-    func setupViewModel() {
+    private func setupCalendarView() {
+        views.calendarView.setupDateLabel(with: Date())
+    }
+    
+    private func setupViewModel() {
         viewModel.reloadCollectionView = { [weak self] in
             guard let self = self else { return }
             

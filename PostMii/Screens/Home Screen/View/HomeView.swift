@@ -44,14 +44,14 @@ class HomeView: UIView {
     
     // MARK: - Methods
     
-    func setupViews() {
+    private func setupViews() {
         backgroundColor = .systemGray6
         
         addSubview(calendarView)
         addSubview(kolodaView)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             calendarView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             calendarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),

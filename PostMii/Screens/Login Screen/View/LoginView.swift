@@ -68,7 +68,7 @@ class LoginView: UIView {
     
     // MARK: - Methods
     
-    func setupViews() {
+    private func setupViews() {
         backgroundColor = .white
         
         addSubview(emailTextField)
@@ -77,7 +77,7 @@ class LoginView: UIView {
         addSubview(createNewAccountButton)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             emailTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),

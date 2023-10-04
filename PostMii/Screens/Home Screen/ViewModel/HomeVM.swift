@@ -59,7 +59,7 @@ class HomeVM {
         self.todoCardCellVMs = tempTodoCardCellVMs // triggers the didSet
     }
     
-    func createTodoCellVM(todo: Todo) -> TodoCardCellVM {
+    private func createTodoCellVM(todo: Todo) -> TodoCardCellVM {
         return TodoCardCellVM(id: todo.id ?? UUID().uuidString, name: todo.name, description: todo.description, date: todo.date)
     }
     

@@ -32,12 +32,12 @@ class SignUpVC: UIViewController {
         
     }
     
-    func setupSelf() {
+    private func setupSelf() {
         self.title = "Sign Up"
         self.views.signUpButton.addTarget(self, action: #selector(signUpButtonTapped(sender:)), for: .touchUpInside)
     }
     
-    func setupViewModel() {
+    private func setupViewModel() {
         
     }
     

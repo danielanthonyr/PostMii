@@ -72,7 +72,7 @@ class SignUpView: UIView {
     
     // MARK: - Methods
     
-    func setupViews() {
+    private func setupViews() {
         backgroundColor = .white
         
         addSubview(spinner)
@@ -84,7 +84,7 @@ class SignUpView: UIView {
         formStackView.addArrangedSubview(confirmPasswordTextfield)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
             spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
