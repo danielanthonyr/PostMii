@@ -296,10 +296,8 @@
 		9E2AE46E2AA81F9000E66B9A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9ED16BDC2ACE0D56008A926C /* Extensions */,
 				9E4583972AA900B900822721 /* Gradients.swift */,
-				9E4583992AA9033100822721 /* UIColor+HexConversion.swift */,
-				9E4583A02AB02D8200822721 /* DateFormatter.swift */,
-				9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */,
 				9E8CB0052AC4D24200481DAA /* FirebaseHelper.swift */,
 				9E8CB0072AC4D95B00481DAA /* FirebaseError.swift */,
 				9E8CB01C2AC534CD00481DAA /* ThemeColors.swift */,
@@ -535,6 +533,16 @@
 				9E8CB01A2AC5163F00481DAA /* AppFont.swift */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		9ED16BDC2ACE0D56008A926C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9E4583A02AB02D8200822721 /* DateFormatter.swift */,
+				9E4583992AA9033100822721 /* UIColor+HexConversion.swift */,
+				9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
