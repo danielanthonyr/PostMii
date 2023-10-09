@@ -68,7 +68,6 @@ class TodoService: TodoServiceProtocol {
             let error = FirebaseError.message(errorMessage)
             
             completion(.failure(error))
-            print("User is not authenticated.")
         }
         
         completion(.success(todos))

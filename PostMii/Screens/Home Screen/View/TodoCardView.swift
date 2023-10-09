@@ -31,25 +31,24 @@ class TodoCardView: UIView {
         imageView.tintColor = .systemGray2
         return imageView
     }()
-    
-    private(set) var nameAndDateStackview: UIStackView = {
+    private(set) var todoContentStackview: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
+        stackView.axis = .vertical
+        stackView.spacing = 8
         return stackView
     }()
     
     private(set) var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = AppFont.bold.size(20)
+        label.font = AppFont.semiBold.size(20)
         label.textColor = .black
         return label
     }()
     
     private(set) var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = AppFont.bold.size(20)
+        label.font = AppFont.semiBold.size(20)
         label.textColor = .black
         return label
     }()
@@ -60,7 +59,7 @@ class TodoCardView: UIView {
         label.numberOfLines = 0
         label.sizeToFit()
         label.font = AppFont.semiBold.size(16)
-        label.textColor = .black
+        label.textColor = .lightGray
         return label
     }()
     
@@ -93,12 +92,12 @@ class TodoCardView: UIView {
         layer.cornerRadius = 16
         layer.masksToBounds = true
         
-        nameAndDateStackview.addArrangedSubview(nameLabel)
-        nameAndDateStackview.addArrangedSubview(dateLabel)
+        todoContentStackview.addArrangedSubview(nameLabel)
+        todoContentStackview.addArrangedSubview(dateLabel)
+        todoContentStackview.addArrangedSubview(descriptionLabel)
         
         addSubview(cardImageView)
-        addSubview(nameAndDateStackview)
-        addSubview(descriptionLabel)
+        addSubview(todoContentStackview)
     }
     
     private func setupConstraints() {
@@ -108,13 +107,9 @@ class TodoCardView: UIView {
             cardImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             cardImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
             
-            nameAndDateStackview.topAnchor.constraint(equalTo: cardImageView.bottomAnchor, constant: 16),
-            nameAndDateStackview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            nameAndDateStackview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: nameAndDateStackview.bottomAnchor, constant: 24),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            todoContentStackview.topAnchor.constraint(equalTo: cardImageView.bottomAnchor, constant: 16),
+            todoContentStackview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            todoContentStackview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
 }

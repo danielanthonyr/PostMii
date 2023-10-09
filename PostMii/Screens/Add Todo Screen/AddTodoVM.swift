@@ -43,8 +43,8 @@ class AddTodoVM {
             let databaseReference = Database.database().reference()
             
             let todoData = [ "name"    : todo.name ,
-                                   "date" : formattedStringDate,
-                                   "description"    : todo.description ]
+                             "date" : formattedStringDate,
+                             "description"    : todo.description ]
             
             databaseReference.child("users").child(userUID).child("todos").childByAutoId().setValue(todoData) { (error, reference) in
                 if let error = error {

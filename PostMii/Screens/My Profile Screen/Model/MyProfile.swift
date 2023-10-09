@@ -8,8 +8,6 @@
 import Foundation
 
 struct MyProfile {
-    let firstName: String
-    let lastName: String
-    let age: Int
-    let email: String
+    var fullName: String?
+    var email: String?
 }

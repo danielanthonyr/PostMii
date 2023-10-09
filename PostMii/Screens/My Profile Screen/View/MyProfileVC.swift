@@ -38,7 +38,7 @@ class MyProfileVC: UIViewController {
     }
     
     private func setupViewModel() {
-        
+        viewModel.getUserInfo()
     }
     
     @objc func logoutButtonPressed(sender: UIButton) {

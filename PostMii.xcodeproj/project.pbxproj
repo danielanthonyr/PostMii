@@ -75,6 +75,8 @@
 		9E8CB0152AC50F4D00481DAA /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E8CB0142AC50F4D00481DAA /* OpenSans-Bold.ttf */; };
 		9E8CB01B2AC5163F00481DAA /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB01A2AC5163F00481DAA /* AppFont.swift */; };
 		9E8CB01D2AC534CD00481DAA /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB01C2AC534CD00481DAA /* ThemeColors.swift */; };
+		9ED16BE02AD4A2FE008A926C /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BDF2AD4A2FE008A926C /* CircleImageView.swift */; };
+		9ED16BE42AD4A7E7008A926C /* MyProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BE32AD4A7E7008A926C /* MyProfileService.swift */; };
 		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +156,8 @@
 		9E8CB0142AC50F4D00481DAA /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		9E8CB01A2AC5163F00481DAA /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		9E8CB01C2AC534CD00481DAA /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
+		9ED16BDF2AD4A2FE008A926C /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		9ED16BE32AD4A7E7008A926C /* MyProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileService.swift; sourceTree = "<group>"; };
 		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				9E45839B2AB028B600822721 /* TodoService.swift */,
+				9ED16BE32AD4A7E7008A926C /* MyProfileService.swift */,
 				9E8CAFC82AC39BF200481DAA /* NetworkManager.swift */,
 			);
 			path = Services;
@@ -541,6 +546,7 @@
 				9E4583A02AB02D8200822721 /* DateFormatter.swift */,
 				9E4583992AA9033100822721 /* UIColor+HexConversion.swift */,
 				9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */,
+				9ED16BDF2AD4A2FE008A926C /* CircleImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -818,6 +824,7 @@
 				9E8CAFF82AC3D83200481DAA /* User.swift in Sources */,
 				9E45839F2AB02A7500822721 /* TodoCardCellVM.swift in Sources */,
 				9E8CAF962AC151AF00481DAA /* TabBarController.swift in Sources */,
+				9ED16BE02AD4A2FE008A926C /* CircleImageView.swift in Sources */,
 				9E2AE4752AA8204E00E66B9A /* HomeVM.swift in Sources */,
 				9E45839C2AB028B600822721 /* TodoService.swift in Sources */,
 				9E2AE47F2AA8286300E66B9A /* AddTodoView.swift in Sources */,
@@ -838,6 +845,7 @@
 				9E8CAFA82AC211A600481DAA /* NotificationsVM.swift in Sources */,
 				9E2AE4772AA8205300E66B9A /* HomeView.swift in Sources */,
 				9E2AE43B2AA81F7E00E66B9A /* AppDelegate.swift in Sources */,
+				9ED16BE42AD4A7E7008A926C /* MyProfileService.swift in Sources */,
 				9E2AE4812AA8289C00E66B9A /* AddTodoVM.swift in Sources */,
 				9E8CAFAA2AC211B300481DAA /* Notification.swift in Sources */,
 				9E8CB0002AC3EDEA00481DAA /* SignUpVC.swift in Sources */,
