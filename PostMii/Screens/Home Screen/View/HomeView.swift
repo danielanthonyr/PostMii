@@ -18,7 +18,7 @@ class HomeView: UIView {
     private(set) var calendarView: HomeCalendarView = {
         let view = HomeCalendarView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = 16
         view.layer.masksToBounds = true
         return view
     }()
@@ -56,7 +56,7 @@ class HomeView: UIView {
             calendarView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             calendarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             calendarView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            calendarView.heightAnchor.constraint(equalToConstant: 120),
+            calendarView.heightAnchor.constraint(equalToConstant: 100),
             
             kolodaView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 16),
             kolodaView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),

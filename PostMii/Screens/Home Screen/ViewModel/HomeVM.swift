@@ -13,6 +13,7 @@ class HomeVM {
     
     var reloadCollectionView: (() -> Void)?
     
+    private(set) var currentDate: Date
     private let todoCardService: TodoServiceProtocol
     private(set) var todoCards: [Todo]
     private(set) var todoCardCellVMs: [TodoCardCellVM] {
@@ -27,6 +28,7 @@ class HomeVM {
         self.todoCardService = service
         self.todoCards = [Todo]()
         self.todoCardCellVMs = [TodoCardCellVM]()
+        self.currentDate = Date()
     }
     
     // MARK: - Methods
@@ -59,11 +61,11 @@ class HomeVM {
         self.todoCardCellVMs = tempTodoCardCellVMs // triggers the didSet
     }
     
-    private func createTodoCellVM(todo: Todo) -> TodoCardCellVM {
-        return TodoCardCellVM(id: todo.id ?? UUID().uuidString, name: todo.name, description: todo.description, date: todo.date)
-    }
-    
     func getTodoCellVM(at index: Int) -> TodoCardCellVM {
         return todoCardCellVMs[index]
+    }
+    
+    private func createTodoCellVM(todo: Todo) -> TodoCardCellVM {
+        return TodoCardCellVM(id: todo.id ?? UUID().uuidString, name: todo.name, description: todo.description, date: todo.date)
     }
 }

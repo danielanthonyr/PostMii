@@ -18,7 +18,6 @@ class HomeCalendarView: UIView {
     private(set) var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Mon, 24 Sep"
         label.font = AppFont.bold.size(24)
         return label
     }()
@@ -59,10 +58,10 @@ class HomeCalendarView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            dateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
-            chevronImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            chevronImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             chevronImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }

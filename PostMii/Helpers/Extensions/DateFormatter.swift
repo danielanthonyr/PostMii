@@ -12,7 +12,7 @@ extension DateFormatter {
     /// Returns in Sept 25 format
     func getDayOfMonthAndMonth(from date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE MMM d"
+        formatter.dateFormat = "EEEE, d MMM"
         return formatter.string(from: date)
     }
     
