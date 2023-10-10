@@ -44,6 +44,12 @@ class SignUpVC: UIViewController {
     // MARK: - Methods
     
     @objc func signUpButtonTapped(sender: UIButton) {
+        guard let userNameString = views.nameTextField.text, !userNameString.isEmpty else {
+            // show error message
+            self.displayAlertMessage(title: "Missing Entry", message: "Please fill out the name field.")
+            return
+        }
+        
         guard let userEmailString = views.emailTextfield.text, !userEmailString.isEmpty else {
             // show error message
             self.displayAlertMessage(title: "Missing Entry", message: "Please fill out the email field.")
@@ -71,12 +77,13 @@ class SignUpVC: UIViewController {
             return
         }
         
+        let name = userNameString
         let email = userEmailString
         let password = todoPasswordString
-        createUser(email: email, password: password)
+        createUser(userFullName: name, email: email, password: password)
     }
     
-    func createUser(email: String, password: String) {
+    func createUser(userFullName: String, email: String, password: String) {
         showSpinner()
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -103,7 +110,24 @@ class SignUpVC: UIViewController {
                 }
             }
             
+            /*
+             For future feature where user uploads profile pic, see here
+             https://stackoverflow.com/questions/38389341/firebase-create-user-with-email-password-display-name-and-photo-url#:~:text=I%20think%20this%20should%20solve%20it%20for%20you%2C%20let%20me%20know%20if%20you%20need%20anything%20else.%20or%20have%20any%20further%20questions%20on%20this%20matter.
+             */
+            
+            // Adding display name to firebase acc creation
             if let user = authResult?.user {
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = userFullName
+                
+                changeRequest?.commitChanges { error in
+                    if error != nil {
+                        guard let message = error?.localizedDescription else { return }
+                        self.displayAlertMessage(title: "Account Creation Error", message: message)
+                        return
+                    }
+                }
+                
                 self.redirectToHomeTabBarController(userUID: user.uid)
             }
         }

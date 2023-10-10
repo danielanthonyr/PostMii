@@ -38,7 +38,13 @@ class MyProfileVC: UIViewController {
     }
     
     private func setupViewModel() {
-        viewModel.getUserInfo()
+        viewModel.loadUserProfilePage = { [weak self] in
+            guard let self = self, self.viewModel.getMyProfileError == nil else { return }
+            
+            views.setupProfileLabels(with: viewModel.myProfile)
+        }
+        
+        viewModel.getMyProfile()
     }
     
     @objc func logoutButtonPressed(sender: UIButton) {

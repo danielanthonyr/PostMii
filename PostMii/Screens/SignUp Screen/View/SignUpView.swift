@@ -30,6 +30,12 @@ class SignUpView: UIView {
         return stackView
     }()
     
+    private(set) var nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Name"
+        return textField
+    }()
+    
     private(set) var emailTextfield: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Email"
@@ -79,6 +85,7 @@ class SignUpView: UIView {
         addSubview(formStackView)
         addSubview(signUpButton)
         
+        formStackView.addArrangedSubview(nameTextField)
         formStackView.addArrangedSubview(emailTextfield)
         formStackView.addArrangedSubview(passwordTextfield)
         formStackView.addArrangedSubview(confirmPasswordTextfield)

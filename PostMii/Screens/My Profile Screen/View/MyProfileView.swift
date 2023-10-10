@@ -35,6 +35,12 @@ class MyProfileView: UIView {
         return label
     }()
     
+    private(set) var profileNameEmailLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Email"
+        return label
+    }()
+    
     private(set) var todosCompletedLabel: UILabel = {
         let label = UILabel()
         label.text = "Todos Completed: "
@@ -69,10 +75,16 @@ class MyProfileView: UIView {
     
     // MARK: - Methods
     
+    func setupProfileLabels(with myProfile: MyProfile) {
+        profileNameLabel.text = myProfile.fullName
+        profileNameEmailLabel.text = myProfile.email
+    }
+    
     private func setupViews() {
         backgroundColor = .systemBackground
         
         profileContentStackview.addArrangedSubview(profileNameLabel)
+        profileContentStackview.addArrangedSubview(profileNameEmailLabel)
         profileContentStackview.addArrangedSubview(todosCompletedLabel)
         profileContentStackview.addArrangedSubview(todosMissedLabel)
         
