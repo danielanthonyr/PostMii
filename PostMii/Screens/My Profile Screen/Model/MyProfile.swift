@@ -10,4 +10,5 @@ import Foundation
 struct MyProfile {
     var fullName: String?
     var email: String?
+    var profilePicURL: URL?
 }

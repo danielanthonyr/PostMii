@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 class MyProfileVC: UIViewController {
     
@@ -31,10 +33,15 @@ class MyProfileVC: UIViewController {
     
     // MARK: - Methods
     
+    //TODO: Add loading animation for the loading of the profile pic
     private func setupSelf() {
         self.title = "My Profile"
         
         views.logoutButton.addTarget(self, action: #selector(logoutButtonPressed(sender:)), for: .touchUpInside)
+        views.cameraCirclePictureView.addTarget(self, action: #selector(profilePicImageViewPressed(sender:)), for: .touchUpInside)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profilePicImageViewPressed(sender:)))
+        views.profilePicImageView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     private func setupViewModel() {
@@ -42,6 +49,10 @@ class MyProfileVC: UIViewController {
             guard let self = self, self.viewModel.getMyProfileError == nil else { return }
             
             views.setupProfileLabels(with: viewModel.myProfile)
+            
+            if let profilePicURL = viewModel.myProfile.profilePicURL {
+                downloadAndDisplayImage(from: profilePicURL)
+            }
         }
         
         viewModel.getMyProfile()
@@ -55,8 +66,20 @@ class MyProfileVC: UIViewController {
             // User is signed out
             // You can perform any additional actions here, such as navigating to a login screen
         } catch let signOutError as NSError {
-            print("Error signing out: \(signOutError)")
+            self.displayAlertMessage(title: "Sign Out Error", message: signOutError.localizedDescription)
         }
+    }
+    
+    @objc func profilePicImageViewPressed(sender: UIImageView) {
+        showImagePicker()
+    }
+    
+    private func showImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
     }
     
     private func redirectToLoginPage() {
@@ -64,5 +87,79 @@ class MyProfileVC: UIViewController {
         let rootVC = UINavigationController(rootViewController: loginVC)
         
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(rootVC)
+    }
+    
+    private func downloadAndDisplayImage(from url: URL) {
+        let storageRef = Storage.storage().reference(forURL: url.absoluteString)
+
+        storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                self.displayAlertMessage(title: "Database Error", message: "Error downloading image from database")
+                // Handle error or display a placeholder image
+            } else if let data = data, let image = UIImage(data: data) {
+                // Now you have the image, you can display it in an UIImageView
+                self.views.profilePicImageView.image = image
+            }
+        }
+    }
+}
+
+// MARK: - UIImagePickerController
+
+extension MyProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            // Upload view image
+            views.profilePicImageView.image = selectedImage
+            
+            uploadPhotoToFirebase(selectedImage: selectedImage, picker: picker)
+            
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Handle when the user cancels the image picker
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    private func uploadPhotoToFirebase(selectedImage: UIImage, picker: UIImagePickerController) {
+        // Upload the new profile pic to firebase
+        let imageUUID = UUID().uuidString
+        let storageRef = Storage.storage().reference().child("images/\(imageUUID).jpg")
+        
+        // Convert the selected image to Data
+        if let imageData = selectedImage.jpegData(compressionQuality: 0.5) {
+            // Upload the image to Firebase Storage
+            _ = storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+                if let error = error {
+                    self.displayAlertMessage(title: "Image Upload Error", message: error.localizedDescription)
+                } else {
+                    // Image uploaded successfully, now store the download URL in Firebase Realtime Database
+                    storageRef.downloadURL { (url, error) in
+                        if let error = error {
+                            self.displayAlertMessage(title: "Download URL error", message: error.localizedDescription)
+                        } else if let downloadURL = url?.absoluteString, let user = Auth.auth().currentUser {
+                            let changeRequest = user.createProfileChangeRequest()
+                            changeRequest.photoURL = URL(string: downloadURL)
+                            
+                            changeRequest.commitChanges { error in
+                                if error != nil {
+                                    guard let message = error?.localizedDescription else { return }
+                                    self.displayAlertMessage(title: "Error uploading profile picture to Database", message: message)
+                                    return
+                                }
+                                print("profile pic url saved successfully")
+                                picker.dismiss(animated: true, completion: nil)
+                            }
+                            
+                        } else {
+                            self.displayAlertMessage(title: "User Authentication Error", message: "You are not logged in")
+                        }
+                    }
+                }
+            }
+        }
     }
 }

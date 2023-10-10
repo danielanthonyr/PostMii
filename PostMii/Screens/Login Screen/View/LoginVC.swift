@@ -89,7 +89,6 @@ class LoginVC: UIViewController {
                     self.displayAlertMessage(title: "Network Issue",
                                              message: "Network Error, please check your internet connection")
                 default:
-                    print(err.code)
                     self.displayAlertMessage(title: "Sign In Error",
                                              message: "Sign in error. Please report to development team")
                 }

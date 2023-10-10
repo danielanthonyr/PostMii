@@ -22,10 +22,28 @@ class MyProfileView: UIView {
         return stackView
     }()
     
+    private(set) var profileCircleViewContainer: UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = .white
+        return container
+    }()
+    
+    private(set) var cameraCirclePictureView: UIButton = {
+        let button = CircleButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = Colors().minty1
+        button.imageView?.clipsToBounds = true
+        button.imageView?.contentMode = .scaleAspectFill
+        button.setImage(UIImage(systemName: "camera.circle"), for: .normal)
+        return button
+    }()
+    
     private(set) var profilePicImageView: CircleImageView = {
         let imageView = CircleImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .lightGray
+        imageView.image = UIImage(named: "default_profile_pic")
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -88,17 +106,30 @@ class MyProfileView: UIView {
         profileContentStackview.addArrangedSubview(todosCompletedLabel)
         profileContentStackview.addArrangedSubview(todosMissedLabel)
         
-        addSubview(profilePicImageView)
+        profileCircleViewContainer.addSubview(profilePicImageView)
+        profileCircleViewContainer.addSubview(cameraCirclePictureView)
+        
+        addSubview(profileCircleViewContainer)
         addSubview(profileContentStackview)
         addSubview(logoutButton)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            profilePicImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            profilePicImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            profilePicImageView.heightAnchor.constraint(equalToConstant: 100),
-            profilePicImageView.widthAnchor.constraint(equalToConstant: 100),
+            profileCircleViewContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            profileCircleViewContainer.centerXAnchor.constraint(equalTo: centerXAnchor),
+            profileCircleViewContainer.heightAnchor.constraint(equalToConstant: 100),
+            profileCircleViewContainer.widthAnchor.constraint(equalToConstant: 100),
+            
+            profilePicImageView.topAnchor.constraint(equalTo: profileCircleViewContainer.topAnchor),
+            profilePicImageView.leadingAnchor.constraint(equalTo: profileCircleViewContainer.leadingAnchor),
+            profilePicImageView.trailingAnchor.constraint(equalTo: profileCircleViewContainer.trailingAnchor),
+            profilePicImageView.bottomAnchor.constraint(equalTo: profileCircleViewContainer.bottomAnchor),
+            
+            cameraCirclePictureView.bottomAnchor.constraint(equalTo: profileCircleViewContainer.bottomAnchor),
+            cameraCirclePictureView.trailingAnchor.constraint(equalTo: profileCircleViewContainer.trailingAnchor),
+            cameraCirclePictureView.heightAnchor.constraint(equalToConstant: 30),
+            cameraCirclePictureView.widthAnchor.constraint(equalToConstant: 30),
             
             profileContentStackview.topAnchor.constraint(equalTo: profilePicImageView.bottomAnchor, constant: 32),
             profileContentStackview.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),

@@ -104,7 +104,6 @@ class SignUpVC: UIViewController {
                     self.displayAlertMessage(title: "Weak Password",
                                              message: "Weak Password. Please choose a better password")
                 default:
-                    print(err.code)
                     self.displayAlertMessage(title: "Sign Up Error",
                                              message: "Sign up error. Please report to development team")
                 }
@@ -117,10 +116,10 @@ class SignUpVC: UIViewController {
             
             // Adding display name to firebase acc creation
             if let user = authResult?.user {
-                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                changeRequest?.displayName = userFullName
+                let changeRequest = user.createProfileChangeRequest()
+                changeRequest.displayName = userFullName
                 
-                changeRequest?.commitChanges { error in
+                changeRequest.commitChanges { error in
                     if error != nil {
                         guard let message = error?.localizedDescription else { return }
                         self.displayAlertMessage(title: "Account Creation Error", message: message)

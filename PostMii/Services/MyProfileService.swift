@@ -19,6 +19,7 @@ class MyProfileService: MyProfileServiceProtocol {
         if let user = Auth.auth().currentUser {
             myProfile.fullName = user.displayName
             myProfile.email = user.email
+            myProfile.profilePicURL = user.photoURL
             
             completion(.success(myProfile))
         } else {
@@ -28,4 +29,5 @@ class MyProfileService: MyProfileServiceProtocol {
             completion(.failure(error))
         }
     }
+
 }

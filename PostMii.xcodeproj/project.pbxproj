@@ -80,6 +80,11 @@
 		9ED16BEA2AD508EA008A926C /* TodoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BE92AD508EA008A926C /* TodoDetailsView.swift */; };
 		9ED16BEC2AD508F2008A926C /* TodoDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BEB2AD508F2008A926C /* TodoDetailsVC.swift */; };
 		9ED16BEE2AD508F7008A926C /* TodoDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BED2AD508F7008A926C /* TodoDetailsVM.swift */; };
+		9ED16BF42AD5EA09008A926C /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BF32AD5EA09008A926C /* FriendsVC.swift */; };
+		9ED16BF62AD5EA0F008A926C /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BF52AD5EA0F008A926C /* FriendsView.swift */; };
+		9ED16BF82AD5EA3F008A926C /* FriendsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BF72AD5EA3F008A926C /* FriendsVM.swift */; };
+		9ED16BFA2AD5EA7F008A926C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BF92AD5EA7F008A926C /* Friend.swift */; };
+		9ED16BFD2AD6012B008A926C /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BFC2AD6012B008A926C /* CircleButton.swift */; };
 		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +169,11 @@
 		9ED16BE92AD508EA008A926C /* TodoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsView.swift; sourceTree = "<group>"; };
 		9ED16BEB2AD508F2008A926C /* TodoDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsVC.swift; sourceTree = "<group>"; };
 		9ED16BED2AD508F7008A926C /* TodoDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsVM.swift; sourceTree = "<group>"; };
+		9ED16BF32AD5EA09008A926C /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
+		9ED16BF52AD5EA0F008A926C /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		9ED16BF72AD5EA3F008A926C /* FriendsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVM.swift; sourceTree = "<group>"; };
+		9ED16BF92AD5EA7F008A926C /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		9ED16BFC2AD6012B008A926C /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +317,7 @@
 		9E2AE46E2AA81F9000E66B9A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9ED16BFB2AD60123008A926C /* Views */,
 				9ED16BDC2ACE0D56008A926C /* Extensions */,
 				9E4583972AA900B900822721 /* Gradients.swift */,
 				9E8CB0052AC4D24200481DAA /* FirebaseHelper.swift */,
@@ -319,6 +330,7 @@
 		9E2AE46F2AA81F9600E66B9A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9ED16BEF2AD5E9F0008A926C /* Friends Screen */,
 				9ED16BE52AD508C6008A926C /* Todo Details Screen */,
 				9E8CAFF92AC3EDC600481DAA /* SignUp Screen */,
 				9E8CAFCA2AC3D72500481DAA /* Login Screen */,
@@ -553,7 +565,6 @@
 				9E4583A02AB02D8200822721 /* DateFormatter.swift */,
 				9E4583992AA9033100822721 /* UIColor+HexConversion.swift */,
 				9E8CB0032AC4BD5B00481DAA /* UIViewController+Alert.swift */,
-				9ED16BDF2AD4A2FE008A926C /* CircleImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -590,6 +601,50 @@
 				9ED16BEB2AD508F2008A926C /* TodoDetailsVC.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9ED16BEF2AD5E9F0008A926C /* Friends Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9ED16BF22AD5E9FE008A926C /* ViewModel */,
+				9ED16BF12AD5E9FA008A926C /* View */,
+				9ED16BF02AD5E9F6008A926C /* Model */,
+			);
+			path = "Friends Screen";
+			sourceTree = "<group>";
+		};
+		9ED16BF02AD5E9F6008A926C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9ED16BF92AD5EA7F008A926C /* Friend.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9ED16BF12AD5E9FA008A926C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9ED16BF32AD5EA09008A926C /* FriendsVC.swift */,
+				9ED16BF52AD5EA0F008A926C /* FriendsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9ED16BF22AD5E9FE008A926C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9ED16BF72AD5EA3F008A926C /* FriendsVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9ED16BFB2AD60123008A926C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9ED16BDF2AD4A2FE008A926C /* CircleImageView.swift */,
+				9ED16BFC2AD6012B008A926C /* CircleButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -865,12 +920,15 @@
 				9E8CB0062AC4D24200481DAA /* FirebaseHelper.swift in Sources */,
 				9E8CAFF82AC3D83200481DAA /* User.swift in Sources */,
 				9E45839F2AB02A7500822721 /* TodoCardCellVM.swift in Sources */,
+				9ED16BF62AD5EA0F008A926C /* FriendsView.swift in Sources */,
 				9E8CAF962AC151AF00481DAA /* TabBarController.swift in Sources */,
 				9ED16BE02AD4A2FE008A926C /* CircleImageView.swift in Sources */,
 				9E2AE4752AA8204E00E66B9A /* HomeVM.swift in Sources */,
 				9E45839C2AB028B600822721 /* TodoService.swift in Sources */,
 				9E2AE47F2AA8286300E66B9A /* AddTodoView.swift in Sources */,
 				9E2AE47D2AA8285D00E66B9A /* AddTodoVC.swift in Sources */,
+				9ED16BFA2AD5EA7F008A926C /* Friend.swift in Sources */,
+				9ED16BF42AD5EA09008A926C /* FriendsVC.swift in Sources */,
 				9E4583A12AB02D8200822721 /* DateFormatter.swift in Sources */,
 				9E8CAF982AC152AC00481DAA /* MyProfileView.swift in Sources */,
 				9E45839A2AA9033100822721 /* UIColor+HexConversion.swift in Sources */,
@@ -882,8 +940,10 @@
 				9E8CB0022AC3EDEF00481DAA /* SignUpVM.swift in Sources */,
 				9E8CAFF42AC3D82900481DAA /* LoginVC.swift in Sources */,
 				9E8CB01B2AC5163F00481DAA /* AppFont.swift in Sources */,
+				9ED16BFD2AD6012B008A926C /* CircleButton.swift in Sources */,
 				9E8CB0042AC4BD5B00481DAA /* UIViewController+Alert.swift in Sources */,
 				9E8CAF9C2AC152B800481DAA /* MyProfileVM.swift in Sources */,
+				9ED16BF82AD5EA3F008A926C /* FriendsVM.swift in Sources */,
 				9E8CAFA82AC211A600481DAA /* NotificationsVM.swift in Sources */,
 				9E2AE4772AA8205300E66B9A /* HomeView.swift in Sources */,
 				9E2AE43B2AA81F7E00E66B9A /* AppDelegate.swift in Sources */,

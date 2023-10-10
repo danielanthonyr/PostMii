@@ -71,7 +71,9 @@ class HomeVC: UIViewController {
 
 extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        koloda.reloadData()
+        DispatchQueue.main.async {
+            koloda.reloadData()
+        }
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
