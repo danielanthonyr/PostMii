@@ -21,7 +21,7 @@ class AddTodoVM {
     
     init(service: TodoServiceProtocol = TodoService()) {
         self.addTodoService = service
-        self.todo = Todo(name: "", description: "", date: Date())
+        self.todo = Todo(timeStampId: "", name: "", description: "", date: Date())
     }
     
     
@@ -32,7 +32,8 @@ class AddTodoVM {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy hh:mm a"
         
-        self.todo = Todo(name: name, description: description, date: todo.date)
+        let timeStamp = "\(Int(NSDate.timeIntervalSinceReferenceDate*1000))"
+        self.todo = Todo(timeStampId:timeStamp, name: name, description: description, date: todo.date)
         let formattedStringDate = dateFormatter.string(from: date)
         
         if let user = Auth.auth().currentUser {
@@ -42,11 +43,13 @@ class AddTodoVM {
             // Create a reference to the Firebase Realtime Database
             let databaseReference = Database.database().reference()
             
-            let todoData = [ "name"    : todo.name ,
-                             "date" : formattedStringDate,
-                             "description"    : todo.description ]
+            let todoData = [
+                "timeStampId" : todo.timeStampId,
+                "name"    : todo.name ,
+                "date" : formattedStringDate,
+                "description"    : todo.description ]
             
-            databaseReference.child("users").child(userUID).child("todos").childByAutoId().setValue(todoData) { (error, reference) in
+            databaseReference.child("users").child(userUID).child("todos").child(timeStamp).setValue(todoData) { (error, reference) in
                 if let error = error {
                     // Handle the error if it occurs
                     print("Error adding todo: \(error.localizedDescription)")

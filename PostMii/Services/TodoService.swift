@@ -10,7 +10,7 @@ import Firebase
 
 protocol TodoServiceProtocol {
     func getTodos(completion: @escaping (Result<[Todo]?, Error>) -> Void)
-    func createTodo(completion: @escaping (Result<Todo?, Error>) -> Void)
+    func markTodoAsCompleted(withId: String, completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
 class TodoService: TodoServiceProtocol {
@@ -37,12 +37,14 @@ class TodoService: TodoServiceProtocol {
                         if let childSnapshot = child as? DataSnapshot,
                            let todoData = childSnapshot.value as? [String: Any] {
                             // Access the todo data and do something with it
+                            let timeStampId = todoData["timeStampId"] as? String
                             let name = todoData["name"] as? String
                             let description = todoData["description"] as? String
                             let firebaseDate = todoData["date"] as? String
                             
                             if let date = firebaseDate, let formattedDate = DateFormatter().getDateFromString(dateString: date) {
                                 let todo = Todo(
+                                    timeStampId: timeStampId ?? "",
                                     name: name ?? "",
                                     description: description ?? "",
                                     date:  formattedDate
@@ -73,8 +75,30 @@ class TodoService: TodoServiceProtocol {
         completion(.success(todos))
     }
     
-    func createTodo(completion: @escaping (Result<Todo?, Error>) -> Void) {
-        let todo = Todo(name: "1", description: "111", date: Date())
-        completion(.success(todo))
+    func markTodoAsCompleted(withId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        if let user = Auth.auth().currentUser {
+            
+            let userUID = user.uid
+            
+            // Create a reference to the Firebase Realtime Database
+            let databaseReference = Database.database().reference()
+            
+            print(withId)
+            let itemReference = databaseReference.child("users").child(userUID).child("todos").child(withId)
+            
+            // Remove the item
+            itemReference.removeValue { error, _ in
+                if let error = error {
+                    let firebaseError = FirebaseError.message(error.localizedDescription)
+                    completion(.failure(firebaseError))
+                } else {
+                    completion(.success(true))
+                }
+            }
+            
+        } else {
+            let firebaseError = FirebaseError.message("User is not authenticated")
+            completion(.failure(firebaseError))
+        }
     }
 }

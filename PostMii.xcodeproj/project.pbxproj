@@ -77,6 +77,9 @@
 		9E8CB01D2AC534CD00481DAA /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB01C2AC534CD00481DAA /* ThemeColors.swift */; };
 		9ED16BE02AD4A2FE008A926C /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BDF2AD4A2FE008A926C /* CircleImageView.swift */; };
 		9ED16BE42AD4A7E7008A926C /* MyProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BE32AD4A7E7008A926C /* MyProfileService.swift */; };
+		9ED16BEA2AD508EA008A926C /* TodoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BE92AD508EA008A926C /* TodoDetailsView.swift */; };
+		9ED16BEC2AD508F2008A926C /* TodoDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BEB2AD508F2008A926C /* TodoDetailsVC.swift */; };
+		9ED16BEE2AD508F7008A926C /* TodoDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BED2AD508F7008A926C /* TodoDetailsVM.swift */; };
 		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +161,9 @@
 		9E8CB01C2AC534CD00481DAA /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		9ED16BDF2AD4A2FE008A926C /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		9ED16BE32AD4A7E7008A926C /* MyProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileService.swift; sourceTree = "<group>"; };
+		9ED16BE92AD508EA008A926C /* TodoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsView.swift; sourceTree = "<group>"; };
+		9ED16BEB2AD508F2008A926C /* TodoDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsVC.swift; sourceTree = "<group>"; };
+		9ED16BED2AD508F7008A926C /* TodoDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsVM.swift; sourceTree = "<group>"; };
 		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -313,6 +319,7 @@
 		9E2AE46F2AA81F9600E66B9A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9ED16BE52AD508C6008A926C /* Todo Details Screen */,
 				9E8CAFF92AC3EDC600481DAA /* SignUp Screen */,
 				9E8CAFCA2AC3D72500481DAA /* Login Screen */,
 				9E8CAF942AC1519A00481DAA /* Tab Bar */,
@@ -549,6 +556,40 @@
 				9ED16BDF2AD4A2FE008A926C /* CircleImageView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9ED16BE52AD508C6008A926C /* Todo Details Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9ED16BE62AD508CE008A926C /* Model */,
+				9ED16BE72AD508D2008A926C /* ViewModel */,
+				9ED16BE82AD508D7008A926C /* View */,
+			);
+			path = "Todo Details Screen";
+			sourceTree = "<group>";
+		};
+		9ED16BE62AD508CE008A926C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9ED16BE72AD508D2008A926C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9ED16BED2AD508F7008A926C /* TodoDetailsVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9ED16BE82AD508D7008A926C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9ED16BE92AD508EA008A926C /* TodoDetailsView.swift */,
+				9ED16BEB2AD508F2008A926C /* TodoDetailsVC.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -816,6 +857,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ED16BEC2AD508F2008A926C /* TodoDetailsVC.swift in Sources */,
 				9E8CAFC92AC39BF200481DAA /* NetworkManager.swift in Sources */,
 				9E4583982AA900B900822721 /* Gradients.swift in Sources */,
 				9E8CAF9E2AC152C100481DAA /* MyProfile.swift in Sources */,
@@ -847,6 +889,7 @@
 				9E2AE43B2AA81F7E00E66B9A /* AppDelegate.swift in Sources */,
 				9ED16BE42AD4A7E7008A926C /* MyProfileService.swift in Sources */,
 				9E2AE4812AA8289C00E66B9A /* AddTodoVM.swift in Sources */,
+				9ED16BEA2AD508EA008A926C /* TodoDetailsView.swift in Sources */,
 				9E8CAFAA2AC211B300481DAA /* Notification.swift in Sources */,
 				9E8CB0002AC3EDEA00481DAA /* SignUpVC.swift in Sources */,
 				9E8CAFF22AC3D82500481DAA /* LoginView.swift in Sources */,
@@ -855,6 +898,7 @@
 				9E8CAFFE2AC3EDE300481DAA /* SignUpView.swift in Sources */,
 				9E8CB01D2AC534CD00481DAA /* ThemeColors.swift in Sources */,
 				9E2AE43D2AA81F7E00E66B9A /* SceneDelegate.swift in Sources */,
+				9ED16BEE2AD508F7008A926C /* TodoDetailsVM.swift in Sources */,
 				9E8CAFA42AC2119600481DAA /* NotificationsVC.swift in Sources */,
 				9E8CAFA62AC2119C00481DAA /* NotificationsView.swift in Sources */,
 			);

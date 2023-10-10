@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Todo: Identifiable, Decodable {
-    var id: String?
+struct Todo: Decodable {
+    var timeStampId: String
     var name: String
     var description: String
     var date: Date
     
     enum CodingKeys: String, CodingKey {
-        case id = "id"
+        case timeStampId = "timeStampId"
         case name = "name"
         case description = "description"
         case date = "date"

@@ -75,7 +75,19 @@ extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        //UIApplication.shared.openURL(URL(string: "https://yalantis.com/")!)
+        // user clicked on card, present todo details
+    }
+    
+    func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
+        if direction == SwipeResultDirection.right {
+            // user completed todo, delete from firebase db
+            let todo = viewModel.getTodoCellVM(at: index)
+            viewModel.markTodoAsCompleted(todo: todo)
+        } else if direction == SwipeResultDirection.left {
+            // user postpone todo, move card to end of stack
+            // TODO: Figure out what we wanna do when user swipes left on a todo
+            print("User swiped left")
+        }
     }
     
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {

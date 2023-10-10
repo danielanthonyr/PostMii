@@ -13,6 +13,7 @@ class HomeVM {
     
     var reloadCollectionView: (() -> Void)?
     
+    private(set) var todoCompletedError: Error?
     private(set) var currentDate: Date
     private let todoCardService: TodoServiceProtocol
     private(set) var todoCards: [Todo]
@@ -66,7 +67,24 @@ class HomeVM {
         return todoCardCellVMs[index]
     }
     
+    func markTodoAsCompleted(todo: TodoCardCellVM) {
+        let todoTimeStampId = todo.timeStampId
+        print("time stamp id: \(todoTimeStampId)")
+        todoCardService.markTodoAsCompleted(withId: todoTimeStampId) { result in
+            switch result {
+            case .success(let result):
+                if result {
+                    // TODO: Figure out if i show a dialog to congratulate user on TODO or not
+                    print("item was successfully removed")
+                    self.reloadCollectionView?()
+                }
+            case .failure(let error):
+                self.todoCompletedError = error
+            }
+        }
+    }
+    
     private func createTodoCellVM(todo: Todo) -> TodoCardCellVM {
-        return TodoCardCellVM(id: todo.id ?? UUID().uuidString, name: todo.name, description: todo.description, date: todo.date)
+        return TodoCardCellVM(timeStampId: todo.timeStampId, name: todo.name, description: todo.description, date: todo.date)
     }
 }

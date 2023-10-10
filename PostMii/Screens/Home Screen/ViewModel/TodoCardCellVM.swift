@@ -8,7 +8,7 @@
 import Foundation
 
 struct TodoCardCellVM {
-    var id: String
+    var timeStampId: String
     var name: String
     var description: String
     var date: Date
