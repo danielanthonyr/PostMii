@@ -50,6 +50,7 @@ class HomeVM {
     
     func setupData(todos: [Todo]) {
         self.todoCards = todos
+        self.todoCards.sort { $0.date < $1.date } // sort todos by most recent first
         
         // create temp todoCardCellVM so we don't trigger the didSet multiple times for todoCardCellVMs
         var tempTodoCardCellVMs = [TodoCardCellVM]()
