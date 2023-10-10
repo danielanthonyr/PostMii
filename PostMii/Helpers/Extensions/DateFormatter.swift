@@ -16,10 +16,10 @@ extension DateFormatter {
         return formatter.string(from: date)
     }
     
-    /// Returns in 12/31/2019 format
-    func getShortDateString(date: Date) -> String {
+    /// Returns in Thu, Oct 12 9:30 PM format
+    func getShortDateWithTimeString(date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.timeStyle = .short
+        formatter.dateFormat = "EEE, d MMM h:mm a"
         return formatter.string(from: date)
     }
     

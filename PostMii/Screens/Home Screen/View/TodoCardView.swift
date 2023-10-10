@@ -83,7 +83,7 @@ class TodoCardView: UIView {
         
         self.cardImageView.image = UIImage(systemName: "list.bullet.clipboard")!
         self.nameLabel.text = todoCardCellVM.name
-        self.dateLabel.text = dateFormatter.getShortDateString(date: todoCardCellVM.date)
+        self.dateLabel.text = dateFormatter.getShortDateWithTimeString(date: todoCardCellVM.date)
         self.descriptionLabel.text = todoCardCellVM.description
     }
     
