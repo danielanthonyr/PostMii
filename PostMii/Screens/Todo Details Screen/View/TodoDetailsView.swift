@@ -31,41 +31,29 @@ class TodoDetailsView: UIView {
         return stackView
     }()
     
-    private(set) var todoNameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = AppFont.semiBold.size(20)
-        label.textColor = .black
-        return label
+    private(set) var todoNameTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = AppFont.semiBold.size(20)
+        textField.textColor = .black
+        return textField
     }()
     
-    private(set) var todoDateLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = AppFont.semiBold.size(20)
-        label.textColor = .black
-        return label
+    private(set) var todoDateTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = AppFont.semiBold.size(20)
+        textField.textColor = .black
+        return textField
     }()
     
-    private(set) var todoDescriptionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = AppFont.semiBold.size(16)
-        label.textColor = .lightGray
-        return label
+    private(set) var todoDescriptionTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = AppFont.semiBold.size(16)
+        textField.textColor = .lightGray
+        return textField
     }()
-    
-//    private(set) var editTodoButton: UIButton = {
-//        let button = UIButton()
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.setTitle("Done", for: .normal)
-//        button.setTitleColor(.black, for: .normal)
-//        button.layer.borderColor = UIColor.gray.cgColor
-//        button.layer.borderWidth = 1.5
-//        button.layer.cornerRadius = 10.0
-//        button.layer.masksToBounds = true
-//        return button
-//    }()
     
     // MARK: - Inits
     
@@ -86,17 +74,17 @@ class TodoDetailsView: UIView {
         let dateFormatter = DateFormatter()
         
         self.cardImageView.image = UIImage(systemName: "list.bullet.clipboard")!
-        self.todoNameLabel.text = todoCardCellVM.name
-        self.todoDateLabel.text = dateFormatter.getShortDateWithTimeString(date: todoCardCellVM.date)
-        self.todoDescriptionLabel.text = todoCardCellVM.description
+        self.todoNameTextField.text = todoCardCellVM.name
+        self.todoDateTextField.text = dateFormatter.getShortDateWithTimeString(date: todoCardCellVM.date)
+        self.todoDescriptionTextField.text = todoCardCellVM.description
     }
     
     private func setupViews() {
         backgroundColor = .white
         
-        labelStackView.addArrangedSubview(todoNameLabel)
-        labelStackView.addArrangedSubview(todoDateLabel)
-        labelStackView.addArrangedSubview(todoDescriptionLabel)
+        labelStackView.addArrangedSubview(todoNameTextField)
+        labelStackView.addArrangedSubview(todoDateTextField)
+        labelStackView.addArrangedSubview(todoDescriptionTextField)
         
         addSubview(cardImageView)
         addSubview(labelStackView)
@@ -112,11 +100,6 @@ class TodoDetailsView: UIView {
             labelStackView.topAnchor.constraint(equalTo: cardImageView.bottomAnchor, constant: 16),
             labelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             labelStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
-//            editTodoButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
-//            editTodoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-//            editTodoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//            editTodoButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }

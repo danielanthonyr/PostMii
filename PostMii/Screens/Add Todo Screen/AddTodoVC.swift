@@ -25,6 +25,7 @@ class AddTodoVC: UIViewController {
         super.viewDidLoad()
         
         setupSelf()
+        setupViewModel()
     }
     
     // MARK: - Methods
@@ -40,7 +41,11 @@ class AddTodoVC: UIViewController {
     }
     
     private func setupViewModel() {
-        
+        viewModel.finishedSavingTodo = { [weak self] in
+            guard let self = self else { return }
+            
+            self.dismiss(animated: true)
+        }
     }
     
     @objc func handleDatePicker(sender: UIDatePicker) {
@@ -68,9 +73,7 @@ class AddTodoVC: UIViewController {
         }
         
         // Add todo to the backend
-        viewModel.saveTodoToFirebase(name: todoNameText, description: todoDescriptionText, date: viewModel.todo.date)
-        
-        self.dismiss(animated: true)
+        viewModel.createTodoInFirebaseDB(name: todoNameText, description: todoDescriptionText)
     }
 }
 
