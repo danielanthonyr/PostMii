@@ -16,7 +16,7 @@ class TodoCardView: UIView {
     var cellVM: TodoCardCellVM? {
         didSet {
             if let cellVM = cellVM {
-                setupLabels(todoCardCellVM: cellVM)
+                setupTodoCardView(todoCardCellVM: cellVM)
             }
         }
     }
@@ -31,6 +31,7 @@ class TodoCardView: UIView {
         imageView.tintColor = .systemGray2
         return imageView
     }()
+    
     private(set) var todoContentStackview: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +79,7 @@ class TodoCardView: UIView {
     
     // MARK: - Methods
     
-    func setupLabels(todoCardCellVM: TodoCardCellVM) {
+    func setupTodoCardView(todoCardCellVM: TodoCardCellVM) {
         let dateFormatter = DateFormatter()
         
         self.cardImageView.image = UIImage(systemName: "list.bullet.clipboard")!

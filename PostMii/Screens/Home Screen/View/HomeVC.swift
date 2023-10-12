@@ -78,6 +78,11 @@ extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
         // user clicked on card, present todo details
+        let cellVM = viewModel.getTodoCellVM(at: index)
+        
+        let todoDetailsVC = TodoDetailsVC()
+        todoDetailsVC.todoCellVM = cellVM
+        navigationController?.pushViewController(todoDetailsVC, animated: true)
     }
     
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {

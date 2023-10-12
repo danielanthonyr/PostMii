@@ -89,7 +89,7 @@ class AddTodoView: UIView {
     
     // MARK: - Methods
     
-    func setupViews() {
+    private func setupViews() {
         backgroundColor = .white
         
         textFieldStackView.addArrangedSubview(todoNameTextField)
@@ -101,7 +101,7 @@ class AddTodoView: UIView {
         addSubview(createTodoButton)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             createTodoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             createTodoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
