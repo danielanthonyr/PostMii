@@ -9,11 +9,11 @@ import Foundation
 import FirebaseAuth
 
 protocol UserAccountServiceProtocol {
-    func createUser(user: User, completion: @escaping (Result<(user: User, uid: String)?, Error>) -> Void)
+    func createUser(user: User, completion: @escaping (Result<User?, Error>) -> Void)
 }
 
 class UserAccountService: UserAccountServiceProtocol {
-    func createUser(user: User, completion: @escaping (Result<(user: User, uid: String)?, Error>) -> Void) {
+    func createUser(user: User, completion: @escaping (Result<User?, Error>) -> Void) {
         Auth.auth().createUser(withEmail: user.email!, password: user.password!) { authResult, error in
             
             if let error = error {
@@ -74,7 +74,7 @@ class UserAccountService: UserAccountServiceProtocol {
                     }
                 }
                 
-                completion(.success((user: user, uid: authenticatedUser.uid)))
+                completion(.success(user))
             }
         }
     }

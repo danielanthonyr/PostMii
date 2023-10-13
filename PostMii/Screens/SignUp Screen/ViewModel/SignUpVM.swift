@@ -33,10 +33,9 @@ class SignUpVM {
         userAccountCreationService.createUser(user: user) { result in
             switch result {
             case .success(let user):
-                if let user = user?.user, let uid = user.uid {
+                if let user = user {
                     self.user = User(
-                        uid: uid, fullName:
-                            user.fullName,
+                        fullName: user.fullName,
                         email: user.email,
                         password: user.password,
                         profilePicURL: user.profilePicURL
