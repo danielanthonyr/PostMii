@@ -82,6 +82,14 @@ extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
         
         let todoDetailsVC = TodoDetailsVC()
         todoDetailsVC.todoCellVM = cellVM
+        todoDetailsVC.viewModel.finishedEditingTodo = { [weak self] in
+            guard let self = self else { return }
+            
+            self.navigationController?.popViewController(animated: true)
+            DispatchQueue.main.async {
+                koloda.reloadData()
+            }
+        }
         navigationController?.pushViewController(todoDetailsVC, animated: true)
     }
     

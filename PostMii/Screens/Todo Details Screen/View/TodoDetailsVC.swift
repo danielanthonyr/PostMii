@@ -14,7 +14,7 @@ class TodoDetailsVC: UIViewController {
     
     var todoCellVM: TodoCardCellVM?
     private let views = TodoDetailsView()
-    private let viewModel = TodoDetailsVM()
+    private(set) var viewModel = TodoDetailsVM()
     
     // MARK: - Lifecycle
     
@@ -26,8 +26,10 @@ class TodoDetailsVC: UIViewController {
         super.viewDidLoad()
         
         setupSelf()
-        setupViewModel()
+        setupTextFields()
     }
+    
+    // MARK: - Methods
     
     func setupSelf() {
         guard let todoCellVM = todoCellVM else {
@@ -41,14 +43,14 @@ class TodoDetailsVC: UIViewController {
         views.setupCardViewDetails(todoCardCellVM: todoCellVM)
     }
     
-    func setupViewModel() {
-        
-    }
-    
     private func setupTextFields() {
         views.todoNameTextField.delegate = self
         views.todoDateTextField.delegate = self
         views.todoDescriptionTextField.delegate = self
+        
+        views.datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
+        
+        views.todoDateTextField.inputView = views.datePicker
     }
     
     private func setupEditBarButton() {
@@ -56,11 +58,16 @@ class TodoDetailsVC: UIViewController {
         navigationItem.rightBarButtonItem = rightBarButton
     }
     
-    // MARK: - Methods
+    @objc func handleDatePicker(sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy hh:mm a"
+        views.todoDateTextField.text = dateFormatter.string(from: sender.date)
+        viewModel.updateTodoDate(date: sender.date)
+        views.todoDateTextField.resignFirstResponder()
+    }
     
-    // TODO: Figure out what to do with this edit bar button item if wanna show another VC or edit in place
     @objc func savedTapped() {
-        guard let todoCellVM = todoCellVM else { return }
+        guard var todoCellVM = todoCellVM else { return }
         
         guard let todoNameText = views.todoNameTextField.text, !todoNameText.isEmpty else {
             self.displayAlertMessage(title: "Missing Name", message: "Please fill out the Todo Name field")
@@ -77,10 +84,12 @@ class TodoDetailsVC: UIViewController {
             return
         }
         
-        // Add todo to the backend
-        //viewModel.saveTodoToFirebase(name: todoNameText, description: todoDescriptionText, date: viewModel.todo.date)
+        todoCellVM.name = todoNameText
+        todoCellVM.date = viewModel.todo.date
+        todoCellVM.description = todoDescriptionText
         
-        self.dismiss(animated: true)
+        // Edit todo to the backend
+        viewModel.editTodoInFirebaseDB(todoCellVM: todoCellVM)
     }
 }
 

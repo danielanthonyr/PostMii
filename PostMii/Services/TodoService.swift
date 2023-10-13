@@ -11,7 +11,7 @@ import Firebase
 protocol TodoServiceProtocol {
     func getTodos(completion: @escaping (Result<[Todo]?, Error>) -> Void)
     func markTodoAsCompleted(withId: String, completion: @escaping (Result<Bool, Error>) -> Void)
-    func createTodoInFirebaseDB(todo: Todo, timeStamp: String, completion: @escaping (Result<Bool, Error>) -> Void)
+    func updateTodoInFirebaseDB(todo: Todo, completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
 class TodoService: TodoServiceProtocol {
@@ -103,7 +103,7 @@ class TodoService: TodoServiceProtocol {
         }
     }
     
-    func createTodoInFirebaseDB(todo: Todo, timeStamp: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func updateTodoInFirebaseDB(todo: Todo, completion: @escaping (Result<Bool, Error>) -> Void) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy hh:mm a"
         let formattedStringDate = dateFormatter.string(from: todo.date)
@@ -121,12 +121,12 @@ class TodoService: TodoServiceProtocol {
                 "date" : formattedStringDate,
                 "description"    : todo.description ]
             
-            databaseReference.child("users").child(userUID).child("todos").child(timeStamp).setValue(todoData) { (error, reference) in
+            databaseReference.child("users").child(userUID).child("todos").child(todo.timeStampId).setValue(todoData) { (error, reference) in
                 if let error = error {
                     let firebaseError = FirebaseError.message(error.localizedDescription)
                     completion(.failure(firebaseError))
                 } else {
-                    print("Todo added to Firebase Database")
+                    print("Todo added/updated to Firebase DB")
                     completion(.success(true))
                 }
             }

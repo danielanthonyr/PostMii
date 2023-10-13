@@ -55,6 +55,18 @@ class TodoDetailsView: UIView {
         return textField
     }()
     
+    private(set) lazy var datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker(frame: .zero)
+        if #available(iOS 14, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        } else {
+            datePicker.datePickerMode = .date
+        }
+        
+        datePicker.timeZone = TimeZone.current
+        return datePicker
+    }()
+    
     // MARK: - Inits
     
     override init(frame: CGRect) {

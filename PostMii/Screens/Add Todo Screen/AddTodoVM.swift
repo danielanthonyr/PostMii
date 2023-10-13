@@ -31,9 +31,9 @@ class AddTodoVM {
     
     func createTodoInFirebaseDB(name: String, description: String) {
         let timeStamp = "\(Int(NSDate.timeIntervalSinceReferenceDate*1000))"
-        self.todo = Todo(timeStampId:timeStamp, name: name, description: description, date: todo.date)
+        self.todo = Todo(timeStampId: timeStamp, name: name, description: description, date: todo.date)
         
-        addTodoService.createTodoInFirebaseDB(todo: self.todo, timeStamp: timeStamp) { result in
+        addTodoService.updateTodoInFirebaseDB(todo: self.todo) { result in
             switch result {
             case .success(let saved):
                 if saved {
