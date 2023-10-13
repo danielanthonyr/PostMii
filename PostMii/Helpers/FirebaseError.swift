@@ -8,5 +8,6 @@
 import Foundation
 
 enum FirebaseError: Error {
+    case accountCreationError((title: String, message: String))
     case message(String)
 }

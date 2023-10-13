@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import FirebaseAuth
 
 class SignUpVC: UIViewController {
     
@@ -26,10 +25,7 @@ class SignUpVC: UIViewController {
         super.viewDidLoad()
         
         setupSelf()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        
+        setupViewModel()
     }
     
     private func setupSelf() {
@@ -38,7 +34,21 @@ class SignUpVC: UIViewController {
     }
     
     private func setupViewModel() {
-        
+        viewModel.accountCreated = { [weak self] in
+            guard let self = self else { return }
+            
+            if let error = viewModel.accountCreatedError {
+                hideSpinner()
+                self.displayAlertMessage(
+                    title: error.localizedDescription.title,
+                    message: error.localizedDescription.message
+                )
+                return
+            }
+            
+            hideSpinner()
+            self.redirectToHomeTabBarController()
+        }
     }
     
     // MARK: - Methods
@@ -85,57 +95,13 @@ class SignUpVC: UIViewController {
     
     func createUser(userFullName: String, email: String, password: String) {
         showSpinner()
-        
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            
-            self.hideSpinner()
-            
-            if let error = error {
-                let err = error as NSError
-                switch err.code {
-                case AuthErrorCode.operationNotAllowed.rawValue:
-                    self.displayAlertMessage(title: "Operation Not Allowed", message: "Sign Up service is disabled")
-                case AuthErrorCode.emailAlreadyInUse.rawValue:
-                    self.displayAlertMessage(title: "Email Already in use", message: "Email is already in use")
-                case AuthErrorCode.invalidEmail.rawValue:
-                    self.displayAlertMessage(title: "Invalid Email",
-                                             message: "Invalid Email. Please enter a valid email")
-                case AuthErrorCode.weakPassword.rawValue:
-                    self.displayAlertMessage(title: "Weak Password",
-                                             message: "Weak Password. Please choose a better password")
-                default:
-                    self.displayAlertMessage(title: "Sign Up Error",
-                                             message: "Sign up error. Please report to development team")
-                }
-            }
-            
-            /*
-             For future feature where user uploads profile pic, see here
-             https://stackoverflow.com/questions/38389341/firebase-create-user-with-email-password-display-name-and-photo-url#:~:text=I%20think%20this%20should%20solve%20it%20for%20you%2C%20let%20me%20know%20if%20you%20need%20anything%20else.%20or%20have%20any%20further%20questions%20on%20this%20matter.
-             */
-            
-            // Adding display name to firebase acc creation
-            if let user = authResult?.user {
-                let changeRequest = user.createProfileChangeRequest()
-                changeRequest.displayName = userFullName
-                
-                changeRequest.commitChanges { error in
-                    if error != nil {
-                        guard let message = error?.localizedDescription else { return }
-                        self.displayAlertMessage(title: "Account Creation Error", message: message)
-                        return
-                    }
-                }
-                
-                self.redirectToHomeTabBarController(userUID: user.uid)
-            }
-        }
+        viewModel.createAccount(withFullname: userFullName, withEmail: email, withPassword: password)
     }
     
-    private func redirectToHomeTabBarController(userUID: String) {
+    private func redirectToHomeTabBarController() {
         let TabBarController = TabBarController()
         
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(TabBarController, userId: userUID)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(TabBarController)
     }
     
     func showSpinner() {

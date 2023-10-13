@@ -12,7 +12,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     // MARK: - Variables
     
-    var userUID: String!
+    var userUID: String?
     
     // MARK: - Lifycycle
     
