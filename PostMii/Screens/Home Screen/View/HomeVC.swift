@@ -86,9 +86,7 @@ extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
             guard let self = self else { return }
             
             self.navigationController?.popViewController(animated: true)
-            DispatchQueue.main.async {
-                koloda.reloadData()
-            }
+            viewModel.getTodos()
         }
         navigationController?.pushViewController(todoDetailsVC, animated: true)
     }
