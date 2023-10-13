@@ -13,7 +13,7 @@ class AddTodoVC: UIViewController {
     // MARK: - Variables
     
     private let views = AddTodoView()
-    private let viewModel = AddTodoVM()
+    private(set) var viewModel = AddTodoVM()
     
     // MARK: - Lifecycle
     
@@ -25,7 +25,6 @@ class AddTodoVC: UIViewController {
         super.viewDidLoad()
         
         setupSelf()
-        setupViewModel()
     }
     
     // MARK: - Methods
@@ -38,14 +37,6 @@ class AddTodoVC: UIViewController {
         views.todoDateTextField.inputView = views.datePicker
         views.datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
         views.createTodoButton.addTarget(self, action: #selector(createTodoButtonClicked(sender:)), for: .touchUpInside)
-    }
-    
-    private func setupViewModel() {
-        viewModel.finishedSavingTodo = { [weak self] in
-            guard let self = self else { return }
-            
-            self.dismiss(animated: true)
-        }
     }
     
     @objc func handleDatePicker(sender: UIDatePicker) {

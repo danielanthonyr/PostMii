@@ -61,9 +61,14 @@ class HomeVC: UIViewController {
     // MARK: - Methods
     
     @objc func addTapped() {
-        // TODO: present modal todo card VC
-        let AddTodoVC = AddTodoVC()
-        self.present(AddTodoVC, animated: true, completion: nil)
+        let addTodoVC = AddTodoVC()
+        addTodoVC.viewModel.finishedSavingTodo = { [weak self] in
+            guard let self = self else { return }
+            
+            navigationController?.dismiss(animated: true)
+            viewModel.getTodos()
+        }
+        self.present(addTodoVC, animated: true, completion: nil)
     }
 }
 
