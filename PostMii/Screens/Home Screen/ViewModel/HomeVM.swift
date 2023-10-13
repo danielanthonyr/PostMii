@@ -76,7 +76,6 @@ class HomeVM {
                 if result {
                     // TODO: Figure out if i show a dialog to congratulate user on TODO or not
                     print("item was successfully removed")
-                    self.reloadCollectionView?()
                 }
             case .failure(let error):
                 self.todoCompletedError = error

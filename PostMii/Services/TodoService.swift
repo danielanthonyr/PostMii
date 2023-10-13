@@ -30,10 +30,8 @@ class TodoService: TodoServiceProtocol {
             let userTodosRef = databaseReference.child("users").child(userUID).child("todos")
             
             // Query the database to retrieve the todos
-            userTodosRef.observe(.value) { (snapshot) in
+            userTodosRef.observeSingleEvent(of: .value) { (snapshot) in
                 if snapshot.exists() {
-                    // The todos data exists
-                    // Iterate through the snapshot to access each todo entry
                     for child in snapshot.children {
                         if let childSnapshot = child as? DataSnapshot,
                            let todoData = childSnapshot.value as? [String: Any] {

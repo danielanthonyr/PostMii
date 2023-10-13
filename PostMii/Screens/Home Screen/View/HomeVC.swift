@@ -93,6 +93,7 @@ extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
             self.navigationController?.popViewController(animated: true)
             viewModel.getTodos()
         }
+        
         navigationController?.pushViewController(todoDetailsVC, animated: true)
     }
     
