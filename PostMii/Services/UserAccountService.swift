@@ -93,25 +93,25 @@ class UserAccountService: UserAccountServiceProtocol {
                     )
                     completion(.failure(error))
                 case AuthErrorCode.invalidEmail.rawValue:
-                    let error = FirebaseAuthError.invalidPassword(
+                    let error = FirebaseAuthError.invalidEmail(
                         title: "Email Error",
                         message: "Invalid Email"
                     )
                     completion(.failure(error))
                 case AuthErrorCode.userNotFound.rawValue:
-                    let error = FirebaseAuthError.invalidPassword(
+                    let error = FirebaseAuthError.userNotFound(
                         title: "User Not Found",
                         message: "Account does not exist. Please sign up first"
                     )
                     completion(.failure(error))
                 case AuthErrorCode.networkError.rawValue:
-                    let error = FirebaseAuthError.invalidPassword(
+                    let error = FirebaseAuthError.networkError(
                         title: "Network Issue",
                         message: "Network Error, please check your internet connection"
                     )
                     completion(.failure(error))
                 default:
-                    let error = FirebaseAuthError.invalidPassword(
+                    let error = FirebaseAuthError.defaultSignInError(
                         title: "Sign In Error",
                         message: "Sign in error. Please report to development team"
                     )
@@ -128,6 +128,7 @@ class UserAccountService: UserAccountServiceProtocol {
                         password: "",
                         profilePicURL: user.photoURL
                     )
+                    completion(.success(user))
                 } else {
                     let error = FirebaseAuthError.noUserIdError(
                         title: "User Id Error",
