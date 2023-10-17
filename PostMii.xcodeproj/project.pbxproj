@@ -34,6 +34,7 @@
 		9E7F8CF22AD9E115001FCF72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7F8CF12AD9E115001FCF72 /* User.swift */; };
 		9E7F8CF42AD9E44A001FCF72 /* FirebaseAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7F8CF32AD9E44A001FCF72 /* FirebaseAuthError.swift */; };
 		9E7F8CF62ADF1CC7001FCF72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E7F8CF52ADF1CC7001FCF72 /* GoogleService-Info.plist */; };
+		9E7F8CF92ADF32B6001FCF72 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 9E7F8CF82ADF32B6001FCF72 /* SkeletonView */; };
 		9E8CAF8F2AC14A9C00481DAA /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */; };
 		9E8CAF962AC151AF00481DAA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF952AC151AF00481DAA /* TabBarController.swift */; };
 		9E8CAF982AC152AC00481DAA /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF972AC152AC00481DAA /* MyProfileView.swift */; };
@@ -191,6 +192,7 @@
 			files = (
 				9E8CAFE02AC3D7E800481DAA /* FirebaseDatabase in Frameworks */,
 				9E8CAFD42AC3D7E800481DAA /* FirebaseAnalyticsSwift in Frameworks */,
+				9E7F8CF92ADF32B6001FCF72 /* SkeletonView in Frameworks */,
 				9E8CAFE82AC3D7E800481DAA /* FirebaseMessaging in Frameworks */,
 				9E8CAFD62AC3D7E800481DAA /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				9E8CAFD02AC3D7E800481DAA /* FirebaseAnalytics in Frameworks */,
@@ -689,6 +691,7 @@
 				9E8CAFEB2AC3D7E800481DAA /* FirebaseRemoteConfigSwift */,
 				9E8CAFED2AC3D7E800481DAA /* FirebaseStorage */,
 				9E8CAFEF2AC3D7E800481DAA /* FirebaseStorageCombine-Community */,
+				9E7F8CF82ADF32B6001FCF72 /* SkeletonView */,
 			);
 			productName = PostMii;
 			productReference = 9E2AE4372AA81F7D00E66B9A /* PostMii.app */;
@@ -767,6 +770,7 @@
 			mainGroup = 9E2AE42E2AA81F7D00E66B9A;
 			packageReferences = (
 				9E8CAFCE2AC3D7E800481DAA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9E7F8CF72ADF32B6001FCF72 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 9E2AE4382AA81F7D00E66B9A /* Products */;
 			projectDirPath = "";
@@ -1310,6 +1314,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9E7F8CF72ADF32B6001FCF72 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.30.3;
+			};
+		};
 		9E8CAFCE2AC3D7E800481DAA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1321,6 +1333,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9E7F8CF82ADF32B6001FCF72 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E7F8CF72ADF32B6001FCF72 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		9E8CAFCF2AC3D7E800481DAA /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9E8CAFCE2AC3D7E800481DAA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

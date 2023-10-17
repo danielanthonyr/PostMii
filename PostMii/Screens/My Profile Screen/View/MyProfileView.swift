@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SkeletonView
 
 class MyProfileView: UIView {
     
@@ -17,6 +18,7 @@ class MyProfileView: UIView {
     private(set) var profileContentStackview: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.isSkeletonable = true
         stackView.axis = .vertical
         stackView.spacing = 16
         return stackView
@@ -25,6 +27,7 @@ class MyProfileView: UIView {
     private(set) var profileCircleViewContainer: UIView = {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
+        container.isSkeletonable = true
         container.backgroundColor = .white
         return container
     }()
@@ -32,6 +35,7 @@ class MyProfileView: UIView {
     private(set) var cameraCirclePictureView: UIButton = {
         let button = CircleButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isSkeletonable = true
         button.backgroundColor = Colors().minty1
         button.imageView?.clipsToBounds = true
         button.imageView?.contentMode = .scaleAspectFill
@@ -42,6 +46,7 @@ class MyProfileView: UIView {
     private(set) var profilePicImageView: CircleImageView = {
         let imageView = CircleImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isSkeletonable = true
         imageView.image = UIImage(named: "default_profile_pic")
         imageView.isUserInteractionEnabled = true
         return imageView
@@ -49,30 +54,35 @@ class MyProfileView: UIView {
     
     private(set) var profileNameLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = "Name"
         return label
     }()
     
     private(set) var profileNameEmailLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = "Email"
         return label
     }()
     
     private(set) var todosCompletedLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = "Todos Completed: "
         return label
     }()
     
     private(set) var todosMissedLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = "Todos Missed: "
         return label
     }()
     
     private(set) var logoutButton: UIButton = {
         let button = UIButton(type: .system)
+        button.isSkeletonable = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Log Out", for: .normal)
         return button

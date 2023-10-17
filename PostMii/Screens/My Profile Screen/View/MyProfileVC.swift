@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
+import SkeletonView
 
 class MyProfileVC: UIViewController {
     
@@ -33,9 +34,10 @@ class MyProfileVC: UIViewController {
     
     // MARK: - Methods
     
-    //TODO: Add loading animation for the loading of the profile pic
     private func setupSelf() {
         self.title = "My Profile"
+        
+        showShimmer()
         
         views.logoutButton.addTarget(self, action: #selector(logoutButtonPressed(sender:)), for: .touchUpInside)
         views.cameraCirclePictureView.addTarget(self, action: #selector(profilePicImageViewPressed(sender:)), for: .touchUpInside)
@@ -51,7 +53,17 @@ class MyProfileVC: UIViewController {
             views.setupProfileLabels(with: viewModel.myProfile)
             
             if let profilePicURL = viewModel.myProfile.profilePicURL {
-                downloadAndDisplayImage(from: profilePicURL)
+                downloadAndDisplayImage(from: profilePicURL) { err in
+                    if let error = err {
+                        self.displayAlertMessage(
+                            title: "Error fetching profile picture",
+                            message: error.localizedDescription
+                        )
+                    }
+                    self.hideShimmer()
+                }
+            } else {
+                self.hideShimmer()
             }
         }
         
@@ -74,6 +86,16 @@ class MyProfileVC: UIViewController {
         showImagePicker()
     }
     
+    private func showShimmer() {
+        views.profileContentStackview.showAnimatedGradientSkeleton()
+        views.profileCircleViewContainer.showAnimatedGradientSkeleton()
+    }
+    
+    private func hideShimmer() {
+        views.profileCircleViewContainer.hideSkeleton()
+        views.profileContentStackview.hideSkeleton()
+    }
+    
     private func showImagePicker() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -89,16 +111,18 @@ class MyProfileVC: UIViewController {
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(rootVC)
     }
     
-    private func downloadAndDisplayImage(from url: URL) {
+    private func downloadAndDisplayImage(from url: URL, completion: @escaping ((Error?)-> Void)) {
         let storageRef = Storage.storage().reference(forURL: url.absoluteString)
 
         storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 self.displayAlertMessage(title: "Database Error", message: "Error downloading image from database")
                 // Handle error or display a placeholder image
+                completion(error)
             } else if let data = data, let image = UIImage(data: data) {
                 // Now you have the image, you can display it in an UIImageView
                 self.views.profilePicImageView.image = image
+                completion(nil)
             }
         }
     }
