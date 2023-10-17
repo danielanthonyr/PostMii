@@ -126,4 +126,12 @@ extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
         
         return cardView
     }
+    
+    func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
+        let overlayView = TodoCardOverlayView()
+        overlayView.translatesAutoresizingMaskIntoConstraints = false
+        overlayView.clipsToBounds = true
+        
+        return overlayView
+    }
 }

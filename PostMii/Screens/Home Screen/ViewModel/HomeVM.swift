@@ -69,7 +69,6 @@ class HomeVM {
     
     func markTodoAsCompleted(todo: TodoCardCellVM) {
         let todoTimeStampId = todo.timeStampId
-        print("time stamp id: \(todoTimeStampId)")
         todoCardService.markTodoAsCompleted(withId: todoTimeStampId) { result in
             switch result {
             case .success(let result):

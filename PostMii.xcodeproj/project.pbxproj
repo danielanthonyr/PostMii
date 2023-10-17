@@ -35,6 +35,7 @@
 		9E7F8CF42AD9E44A001FCF72 /* FirebaseAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7F8CF32AD9E44A001FCF72 /* FirebaseAuthError.swift */; };
 		9E7F8CF62ADF1CC7001FCF72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E7F8CF52ADF1CC7001FCF72 /* GoogleService-Info.plist */; };
 		9E7F8CF92ADF32B6001FCF72 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 9E7F8CF82ADF32B6001FCF72 /* SkeletonView */; };
+		9E7F8CFD2ADF434B001FCF72 /* TodoCardOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7F8CFC2ADF434B001FCF72 /* TodoCardOverlayView.swift */; };
 		9E8CAF8F2AC14A9C00481DAA /* HomeCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */; };
 		9E8CAF962AC151AF00481DAA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF952AC151AF00481DAA /* TabBarController.swift */; };
 		9E8CAF982AC152AC00481DAA /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CAF972AC152AC00481DAA /* MyProfileView.swift */; };
@@ -143,6 +144,7 @@
 		9E7F8CF12AD9E115001FCF72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9E7F8CF32AD9E44A001FCF72 /* FirebaseAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthError.swift; sourceTree = "<group>"; };
 		9E7F8CF52ADF1CC7001FCF72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9E7F8CFC2ADF434B001FCF72 /* TodoCardOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardOverlayView.swift; sourceTree = "<group>"; };
 		9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCalendarView.swift; sourceTree = "<group>"; };
 		9E8CAF952AC151AF00481DAA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9E8CAF972AC152AC00481DAA /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				9E2AE4762AA8205300E66B9A /* HomeView.swift */,
 				9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */,
 				9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */,
+				9E7F8CFC2ADF434B001FCF72 /* TodoCardOverlayView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 				9E2AE47D2AA8285D00E66B9A /* AddTodoVC.swift in Sources */,
 				9ED16BFA2AD5EA7F008A926C /* Friend.swift in Sources */,
 				9ED16BF42AD5EA09008A926C /* FriendsVC.swift in Sources */,
+				9E7F8CFD2ADF434B001FCF72 /* TodoCardOverlayView.swift in Sources */,
 				9E4583A12AB02D8200822721 /* DateFormatter.swift in Sources */,
 				9E8CAF982AC152AC00481DAA /* MyProfileView.swift in Sources */,
 				9E45839A2AA9033100822721 /* UIColor+HexConversion.swift in Sources */,
