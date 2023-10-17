@@ -14,6 +14,14 @@ class LoginView: UIView {
     
     // MARK: - Views
     
+    private(set) var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.hidesWhenStopped = true
+        spinner.isHidden = true
+        return spinner
+    }()
+    
     private(set) var emailTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -71,6 +79,7 @@ class LoginView: UIView {
     private func setupViews() {
         backgroundColor = .white
         
+        addSubview(spinner)
         addSubview(emailTextField)
         addSubview(passwordTextfield)
         addSubview(loginButton)
@@ -79,6 +88,9 @@ class LoginView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
             emailTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             emailTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             emailTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),

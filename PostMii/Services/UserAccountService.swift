@@ -10,9 +10,11 @@ import FirebaseAuth
 
 protocol UserAccountServiceProtocol {
     func createUser(user: User, completion: @escaping (Result<User?, Error>) -> Void)
+    func login(user: User, completion: @escaping (Result<User?, Error>) -> Void)
 }
 
 class UserAccountService: UserAccountServiceProtocol {
+    
     func createUser(user: User, completion: @escaping (Result<User?, Error>) -> Void) {
         Auth.auth().createUser(withEmail: user.email!, password: user.password!) { authResult, error in
             
@@ -75,6 +77,64 @@ class UserAccountService: UserAccountServiceProtocol {
                 }
                 
                 completion(.success(user))
+            }
+        }
+    }
+    
+    func login(user: User, completion: @escaping (Result<User?, Error>) -> Void) {
+        Auth.auth().signIn(withEmail: user.email!, password: user.password!) { (authResult, error) in
+            if let error = error {
+                let err = error as NSError
+                switch err.code {
+                case AuthErrorCode.wrongPassword.rawValue:
+                    let error = FirebaseAuthError.invalidPassword(
+                        title: "Password Error",
+                        message: "Invalid Password"
+                    )
+                    completion(.failure(error))
+                case AuthErrorCode.invalidEmail.rawValue:
+                    let error = FirebaseAuthError.invalidPassword(
+                        title: "Email Error",
+                        message: "Invalid Email"
+                    )
+                    completion(.failure(error))
+                case AuthErrorCode.userNotFound.rawValue:
+                    let error = FirebaseAuthError.invalidPassword(
+                        title: "User Not Found",
+                        message: "Account does not exist. Please sign up first"
+                    )
+                    completion(.failure(error))
+                case AuthErrorCode.networkError.rawValue:
+                    let error = FirebaseAuthError.invalidPassword(
+                        title: "Network Issue",
+                        message: "Network Error, please check your internet connection"
+                    )
+                    completion(.failure(error))
+                default:
+                    let error = FirebaseAuthError.invalidPassword(
+                        title: "Sign In Error",
+                        message: "Sign in error. Please report to development team"
+                    )
+                    completion(.failure(error))
+                }
+                
+            } else {
+                // The user is signed in; perform any required actions (e.g., navigate to the main screen)
+                if let user = authResult?.user, let uid = authResult?.user.uid {
+                    let user = User(
+                        uid: uid,
+                        fullName: user.displayName,
+                        email: user.email,
+                        password: "",
+                        profilePicURL: user.photoURL
+                    )
+                } else {
+                    let error = FirebaseAuthError.noUserIdError(
+                        title: "User Id Error",
+                        message: "No User Id. Please report to development team"
+                    )
+                    completion(.failure(error))
+                }
             }
         }
     }

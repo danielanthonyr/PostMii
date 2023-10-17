@@ -108,7 +108,7 @@ class SignUpVC: UIViewController {
         views.spinner.startAnimating()
     }
     
-    func hideSpinner() {
+    private func hideSpinner() {
         views.spinner.stopAnimating()
     }
 }

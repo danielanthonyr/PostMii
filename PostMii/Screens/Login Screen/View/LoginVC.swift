@@ -26,6 +26,7 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         
         setupSelf()
+        setupViewModel()
     }
     
     private func setupSelf() {
@@ -35,7 +36,30 @@ class LoginVC: UIViewController {
     }
     
     private func setupViewModel() {
-        
+        viewModel.loginTriggered = { [weak self] in
+            guard let self = self else { return }
+            
+            if let error = viewModel.loginError {
+                hideSpinner()
+                
+                self.displayAlertMessage(
+                    title: error.localizedDescription.title,
+                    message: error.localizedDescription.message
+                )
+                return
+            }
+            
+            hideSpinner()
+            
+            if let uid = viewModel.user.uid {
+                self.redirectToHomeTabBarController(userUID: uid)
+            } else {
+                self.displayAlertMessage(
+                    title: "User uid invalid",
+                    message: "No User uid, please try again"
+                )
+            }
+        }
     }
     
     // MARK: - Methods
@@ -54,7 +78,7 @@ class LoginVC: UIViewController {
         
         let email = todoEmailString
         let password = todoPasswordString
-        signIn(email: email, password: password)
+        viewModel.login(email: email, password: password)
     }
     
     @objc func createNewAccountButtonTapped(sender: UIButton) {
@@ -73,40 +97,13 @@ class LoginVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-            if let error = error {
-                let err = error as NSError
-                switch err.code {
-                case AuthErrorCode.wrongPassword.rawValue:
-                    self.displayAlertMessage(title: "Password", message: "Invalid Password")
-                case AuthErrorCode.invalidEmail.rawValue:
-                    self.displayAlertMessage(title: "Email", message: "Invalid Email")
-                case AuthErrorCode.userNotFound.rawValue:
-                    self.displayAlertMessage(title: "User Not Found",
-                                             message: "Account does not exist. Please sign up first")
-                case AuthErrorCode.networkError.rawValue:
-                    self.displayAlertMessage(title: "Network Issue",
-                                             message: "Network Error, please check your internet connection")
-                default:
-                    self.displayAlertMessage(title: "Sign In Error",
-                                             message: "Sign in error. Please report to development team")
-                }
-                
-            } else {
-                // The user is signed in; perform any required actions (e.g., navigate to the main screen)
-                if let userUID = authResult?.user.uid {
-                    self.redirectToHomeTabBarController(userUID: userUID)
-                } else {
-                    print("No user UID")
-                }
-            }
-        }
-    }
-    
     private func redirectToHomeTabBarController(userUID: String) {
         let TabBarController = TabBarController()
         
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(TabBarController, userId: userUID)
+    }
+    
+    private func hideSpinner() {
+        views.spinner.stopAnimating()
     }
 }
