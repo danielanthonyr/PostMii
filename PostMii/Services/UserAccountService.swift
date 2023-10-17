@@ -47,7 +47,7 @@ class UserAccountService: UserAccountServiceProtocol {
                     completion(.failure(error))
                 default:
                     let error = FirebaseAuthError.defaultError(
-                        title: "Sign Up Error",
+                        title: "Sign Up Error \(err.code)",
                         message: "Sign up error. Please report to development team"
                     )
                     completion(.failure(error))
@@ -112,12 +112,11 @@ class UserAccountService: UserAccountServiceProtocol {
                     completion(.failure(error))
                 default:
                     let error = FirebaseAuthError.defaultSignInError(
-                        title: "Sign In Error",
+                        title: "Sign In Error \(err.code)",
                         message: "Sign in error. Please report to development team"
                     )
                     completion(.failure(error))
                 }
-                
             } else {
                 // The user is signed in; perform any required actions (e.g., navigate to the main screen)
                 if let user = authResult?.user, let uid = authResult?.user.uid {
