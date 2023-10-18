@@ -87,6 +87,12 @@ extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
         
         let todoDetailsVC = TodoDetailsVC()
         todoDetailsVC.todoCellVM = cellVM
+        
+        // passing the todo card image dynamically to avoid unnecessary API calls
+        if let imageURL = cellVM.todoPhotoURL, imageURL != "", let todoCardView = koloda.viewForCard(at: index) as? TodoCardView {
+            todoDetailsVC.todoCardImage = todoCardView.cardImageView.image
+        }
+        
         todoDetailsVC.viewModel.finishedEditingTodo = { [weak self] in
             guard let self = self else { return }
             

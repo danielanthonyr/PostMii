@@ -13,6 +13,7 @@ class TodoDetailsVC: UIViewController {
     // MARK: - Variables
     
     var todoCellVM: TodoCardCellVM?
+    var todoCardImage: UIImage?
     private let views = TodoDetailsView()
     private(set) var viewModel = TodoDetailsVM()
     
@@ -41,6 +42,9 @@ class TodoDetailsVC: UIViewController {
         self.title = "Details"
         setupEditBarButton()
         views.setupCardViewDetails(todoCardCellVM: todoCellVM)
+        if let todoCardImage = todoCardImage {
+            self.views.cardImageView.image = todoCardImage
+        }
     }
     
     private func setupTextFields() {
