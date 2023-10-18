@@ -148,6 +148,7 @@ extension MyProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDe
         picker.dismiss(animated: true, completion: nil)
     }
     
+    // TODO: Once get this working, migrate logic to it's own service class and call from VM, and remove firebase imports
     private func uploadPhotoToFirebase(selectedImage: UIImage, picker: UIImagePickerController) {
         // Upload the new profile pic to firebase
         let imageUUID = UUID().uuidString

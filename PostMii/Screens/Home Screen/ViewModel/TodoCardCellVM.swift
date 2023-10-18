@@ -9,6 +9,7 @@ import Foundation
 
 struct TodoCardCellVM {
     var timeStampId: String
+    var todoPhotoURL: String?
     var name: String
     var description: String
     var date: Date

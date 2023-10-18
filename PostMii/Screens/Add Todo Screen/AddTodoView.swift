@@ -14,6 +14,28 @@ class AddTodoView: UIView {
     
     // MARK: - Views
     
+    private(set) var cardImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "list.bullet.clipboard")!
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = Colors().midnightGrey1
+        imageView.tintColor = .systemGray2
+        return imageView
+    }()
+    
+    private(set) var editImageViewButton: UIButton = {
+        let button = CircleButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isSkeletonable = true
+        button.backgroundColor = Colors().minty1
+        button.tintColor = Colors().midnightGrey1
+        button.imageView?.clipsToBounds = true
+        button.imageView?.contentMode = .scaleAspectFill
+        button.setImage(UIImage(systemName: "pencil.circle"), for: .normal)
+        return button
+    }()
+    
     private(set) var createTodoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -97,6 +119,8 @@ class AddTodoView: UIView {
         textFieldStackView.addArrangedSubview(todoDescriptionTextField)
         
         addSubview(createTodoLabel)
+        addSubview(cardImageView)
+        addSubview(editImageViewButton)
         addSubview(textFieldStackView)
         addSubview(createTodoButton)
     }
@@ -106,7 +130,17 @@ class AddTodoView: UIView {
             createTodoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             createTodoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            textFieldStackView.topAnchor.constraint(equalTo: createTodoLabel.bottomAnchor, constant: 16),
+            cardImageView.topAnchor.constraint(equalTo: createTodoLabel.bottomAnchor, constant: 16),
+            cardImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            cardImageView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            cardImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
+            
+            editImageViewButton.topAnchor.constraint(equalTo: cardImageView.topAnchor, constant: 16),
+            editImageViewButton.trailingAnchor.constraint(equalTo: cardImageView.trailingAnchor, constant: -16),
+            editImageViewButton.heightAnchor.constraint(equalToConstant: 40),
+            editImageViewButton.widthAnchor.constraint(equalToConstant: 40),
+            
+            textFieldStackView.topAnchor.constraint(equalTo: cardImageView.bottomAnchor, constant: 16),
             textFieldStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             textFieldStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             

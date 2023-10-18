@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import Firebase
 
 class AddTodoVM {
     
     // MARK: - Variables
     
     var finishedSavingTodo: (() -> Void)?
+    var imageData: Data?
     
     private let addTodoService: TodoServiceProtocol
     private(set) var todo: Todo
@@ -28,20 +28,32 @@ class AddTodoVM {
     
     // MARK: - Methods
     
-    
     func createTodoInFirebaseDB(name: String, description: String) {
         let timeStamp = "\(Int(NSDate.timeIntervalSinceReferenceDate*1000))"
         self.todo = Todo(timeStampId: timeStamp, name: name, description: description, date: todo.date)
         
-        addTodoService.updateTodoInFirebaseDB(todo: self.todo) { result in
-            switch result {
-            case .success(let saved):
-                if saved {
+        if let imageData = self.imageData {
+            addTodoService.updateTodoInFirebaseDBWithImage(todo: self.todo, imageData: imageData) { result in
+                switch result {
+                case .success(_):
                     self.finishedSavingTodo?()
+                case .failure(let error):
+                    self.error = error
                 }
-                
-            case .failure(let error):
-                self.error = error
+            }
+            
+        } else {
+            
+            addTodoService.updateTodoInFirebaseDB(todo: self.todo) { result in
+                switch result {
+                case .success(let saved):
+                    if saved {
+                        self.finishedSavingTodo?()
+                    }
+                    
+                case .failure(let error):
+                    self.error = error
+                }
             }
         }
     }

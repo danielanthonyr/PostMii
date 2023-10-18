@@ -83,6 +83,6 @@ class HomeVM {
     }
     
     private func createTodoCellVM(todo: Todo) -> TodoCardCellVM {
-        return TodoCardCellVM(timeStampId: todo.timeStampId, name: todo.name, description: todo.description, date: todo.date)
+        return TodoCardCellVM(timeStampId: todo.timeStampId, todoPhotoURL: todo.todoPhotoURL, name: todo.name, description: todo.description, date: todo.date)
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Koloda
+import FirebaseStorage
 
 class TodoCardView: UIView {
     
@@ -82,7 +83,13 @@ class TodoCardView: UIView {
     func setupTodoCardView(todoCardCellVM: TodoCardCellVM) {
         let dateFormatter = DateFormatter()
         
-        self.cardImageView.image = UIImage(systemName: "list.bullet.clipboard")!
+        if let todoCardPhotoURL = todoCardCellVM.todoPhotoURL, todoCardPhotoURL != "" {
+            downloadAndDisplayImage(from: URL(string:todoCardPhotoURL)!) { error in
+                print(error?.localizedDescription)
+            }
+        } else {
+            self.cardImageView.image = UIImage(systemName: "list.bullet.clipboard")!
+        }
         self.nameLabel.text = todoCardCellVM.name
         self.dateLabel.text = dateFormatter.getShortDateWithTimeString(date: todoCardCellVM.date)
         self.descriptionLabel.text = todoCardCellVM.description
@@ -112,5 +119,23 @@ class TodoCardView: UIView {
             todoContentStackview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             todoContentStackview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
+    }
+    
+    // TODO: figure out where to call this, just want to get it working for now
+    private func downloadAndDisplayImage(from url: URL, completion: @escaping ((Error?)-> Void)) {
+        let storageRef = Storage.storage().reference(forURL: url.absoluteString)
+
+        storageRef.getData(maxSize: 1 * 1024 * 1024 * 1024) { data, error in
+            if let error = error {
+                // Handle error or display a placeholder image
+                completion(error)
+            } else if let data = data, let image = UIImage(data: data) {
+                // Now you have the image, you can display it in an UIImageView
+                DispatchQueue.main.async {
+                    self.cardImageView.image = image
+                    completion(nil)
+                }
+            }
+        }
     }
 }

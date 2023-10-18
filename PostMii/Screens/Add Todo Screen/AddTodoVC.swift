@@ -37,6 +37,11 @@ class AddTodoVC: UIViewController {
         views.todoDateTextField.inputView = views.datePicker
         views.datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
         views.createTodoButton.addTarget(self, action: #selector(createTodoButtonClicked(sender:)), for: .touchUpInside)
+        views.editImageViewButton.addTarget(self, action: #selector(todoImageViewPressed(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func todoImageViewPressed(sender: UIImageView) {
+        showImagePicker()
     }
     
     @objc func handleDatePicker(sender: UIDatePicker) {
@@ -66,6 +71,14 @@ class AddTodoVC: UIViewController {
         // Add todo to the backend
         viewModel.createTodoInFirebaseDB(name: todoNameText, description: todoDescriptionText)
     }
+    
+    private func showImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITextFieldDelegate
@@ -83,5 +96,30 @@ extension AddTodoVC: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+// MARK: - UIImagePickerController
+
+extension AddTodoVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            // Upload view image
+            views.cardImageView.image = selectedImage
+            
+            uploadTodoPhotoToFirebase(selectedImage: selectedImage, picker: picker)
+            
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    // TODO: Once get this working, migrate logic to it's own service class and call from VM, and remove firebase imports
+    private func uploadTodoPhotoToFirebase(selectedImage: UIImage, picker: UIImagePickerController) {
+        // Convert the selected image to Data
+        if let imageData = selectedImage.jpegData(compressionQuality: 0.5) {
+            // Upload the image to Firebase Storage
+            self.viewModel.imageData = imageData
+        }
     }
 }
