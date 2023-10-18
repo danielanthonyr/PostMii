@@ -108,14 +108,13 @@ extension AddTodoVC: UIImagePickerControllerDelegate, UINavigationControllerDele
             // Upload view image
             views.cardImageView.image = selectedImage
             
-            uploadTodoPhotoToFirebase(selectedImage: selectedImage, picker: picker)
+            saveImageData(selectedImage: selectedImage, picker: picker)
             
             picker.dismiss(animated: true, completion: nil)
         }
     }
     
-    // TODO: Once get this working, migrate logic to it's own service class and call from VM, and remove firebase imports
-    private func uploadTodoPhotoToFirebase(selectedImage: UIImage, picker: UIImagePickerController) {
+    private func saveImageData(selectedImage: UIImage, picker: UIImagePickerController) {
         // Convert the selected image to Data
         if let imageData = selectedImage.jpegData(compressionQuality: 0.5) {
             // Upload the image to Firebase Storage

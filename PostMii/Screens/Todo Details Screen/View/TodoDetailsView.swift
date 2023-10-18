@@ -23,6 +23,18 @@ class TodoDetailsView: UIView {
         return imageView
     }()
     
+    private(set) var editImageViewButton: UIButton = {
+        let button = CircleButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isSkeletonable = true
+        button.backgroundColor = Colors().minty1
+        button.tintColor = Colors().midnightGrey1
+        button.imageView?.clipsToBounds = true
+        button.imageView?.contentMode = .scaleAspectFill
+        button.setImage(UIImage(systemName: "pencil.circle"), for: .normal)
+        return button
+    }()
+    
     private(set) var labelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -99,6 +111,7 @@ class TodoDetailsView: UIView {
         labelStackView.addArrangedSubview(todoDescriptionTextField)
         
         addSubview(cardImageView)
+        addSubview(editImageViewButton)
         addSubview(labelStackView)
     }
     
@@ -108,6 +121,11 @@ class TodoDetailsView: UIView {
             cardImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             cardImageView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             cardImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
+            
+            editImageViewButton.topAnchor.constraint(equalTo: cardImageView.topAnchor, constant: 16),
+            editImageViewButton.trailingAnchor.constraint(equalTo: cardImageView.trailingAnchor, constant: -16),
+            editImageViewButton.heightAnchor.constraint(equalToConstant: 40),
+            editImageViewButton.widthAnchor.constraint(equalToConstant: 40),
             
             labelStackView.topAnchor.constraint(equalTo: cardImageView.bottomAnchor, constant: 16),
             labelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

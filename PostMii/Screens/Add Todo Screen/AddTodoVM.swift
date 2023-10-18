@@ -43,7 +43,6 @@ class AddTodoVM {
             }
             
         } else {
-            
             addTodoService.updateTodoInFirebaseDB(todo: self.todo) { result in
                 switch result {
                 case .success(let saved):

@@ -45,6 +45,12 @@ class TodoDetailsVC: UIViewController {
         if let todoCardImage = todoCardImage {
             self.views.cardImageView.image = todoCardImage
         }
+        
+        views.editImageViewButton.addTarget(self, action: #selector(todoImageViewPressed(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func todoImageViewPressed(sender: UIImageView) {
+        showImagePicker()
     }
     
     private func setupTextFields() {
@@ -92,8 +98,16 @@ class TodoDetailsVC: UIViewController {
         todoCellVM.date = viewModel.todo.date
         todoCellVM.description = todoDescriptionText
         
-        // Edit todo to the backend
+        // Edit todo to the backendX
         viewModel.editTodoInFirebaseDB(todoCellVM: todoCellVM)
+    }
+    
+    private func showImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
     }
 }
 
@@ -112,5 +126,27 @@ extension TodoDetailsVC: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+extension TodoDetailsVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            // Upload view image
+            views.cardImageView.image = selectedImage
+            
+            saveImageData(selectedImage: selectedImage, picker: picker)
+            
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func saveImageData(selectedImage: UIImage, picker: UIImagePickerController) {
+        // Convert the selected image to Data
+        if let imageData = selectedImage.jpegData(compressionQuality: 0.5) {
+            // Upload the image to Firebase Storage
+            self.viewModel.imageData = imageData
+        }
     }
 }
