@@ -42,7 +42,8 @@ class LoginView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Log in", for: .normal)
         button.layer.borderWidth = 2.0 // Set the width of the border
-        button.layer.borderColor = UIColor.systemBlue.cgColor
+        button.setTitleColor(.black, for: .normal)
+        button.layer.borderColor = UIColor.gray.cgColor
         button.layer.cornerRadius = 20.0 // Adjust the value for the desired corner radius
         // Clips to bounds ensures that the content inside the button doesn't extend beyond the rounded corners
         button.clipsToBounds = true
@@ -54,7 +55,8 @@ class LoginView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Create new account", for: .normal)
         button.layer.borderWidth = 2.0 // Set the width of the border
-        button.layer.borderColor = UIColor.systemBlue.cgColor
+        button.setTitleColor(.black, for: .normal)
+        button.layer.borderColor = UIColor.gray.cgColor
         button.layer.cornerRadius = 20.0 // Adjust the value for the desired corner radius
         // Clips to bounds ensures that the content inside the button doesn't extend beyond the rounded corners
         button.clipsToBounds = true
