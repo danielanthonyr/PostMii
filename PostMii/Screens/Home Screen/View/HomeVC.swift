@@ -31,10 +31,13 @@ class HomeVC: UIViewController {
         setupViewModel()
     }
     
+    // MARK: - Methods
+    
     func setupSelf() {
 //        self.title = "PostMii"
         self.title = "Home"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        self.views.emptyTodoCardDeckView.reloadButton.addTarget(self, action: #selector(emptyViewReloadButtonPressed(sender:)), for: .touchUpInside)
     }
     
     private func setupKolodaView() {
@@ -58,8 +61,6 @@ class HomeVC: UIViewController {
         viewModel.getTodos()
     }
     
-    // MARK: - Methods
-    
     @objc func addTapped() {
         let addTodoVC = AddTodoVC()
         addTodoVC.viewModel.finishedSavingTodo = { [weak self] in
@@ -70,6 +71,13 @@ class HomeVC: UIViewController {
         }
         self.present(addTodoVC, animated: true, completion: nil)
     }
+    
+    @objc func emptyViewReloadButtonPressed(sender: UIButton) {
+        DispatchQueue.main.async {
+            self.views.emptyTodoCardDeckView.isHidden = true
+        }
+        self.viewModel.getTodos()
+    }
 }
 
 // MARK: - KolodaView
@@ -77,7 +85,7 @@ class HomeVC: UIViewController {
 extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         DispatchQueue.main.async {
-            koloda.reloadData()
+            self.views.emptyTodoCardDeckView.isHidden = false
         }
     }
     
@@ -110,8 +118,6 @@ extension HomeVC: KolodaViewDelegate, KolodaViewDataSource {
             viewModel.markTodoAsCompleted(todo: todo)
         } else if direction == SwipeResultDirection.left {
             // user postpone todo, move card to end of stack
-            // TODO: Figure out what we wanna do when user swipes left on a todo
-            print("User swiped left")
         }
     }
     

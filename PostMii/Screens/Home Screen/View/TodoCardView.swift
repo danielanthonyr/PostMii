@@ -85,7 +85,9 @@ class TodoCardView: UIView {
         
         if let todoCardPhotoURL = todoCardCellVM.todoPhotoURL, todoCardPhotoURL != "" {
             downloadAndDisplayImage(from: URL(string:todoCardPhotoURL)!) { error in
-                print(error?.localizedDescription)
+                if let error = error {
+                    print("todo card photo URL error: \(error.localizedDescription)")
+                }
             }
         } else {
             self.cardImageView.image = UIImage(systemName: "list.bullet.clipboard")!

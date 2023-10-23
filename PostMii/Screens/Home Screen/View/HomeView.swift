@@ -29,6 +29,13 @@ class HomeView: UIView {
         return kolodaView
     }()
     
+    private(set) var emptyTodoCardDeckView: EmptyTodoCardDeckView = {
+        let view = EmptyTodoCardDeckView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        return view
+    }()
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -49,6 +56,7 @@ class HomeView: UIView {
         
         addSubview(calendarView)
         addSubview(kolodaView)
+        addSubview(emptyTodoCardDeckView)
     }
     
     private func setupConstraints() {
@@ -61,7 +69,12 @@ class HomeView: UIView {
             kolodaView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 16),
             kolodaView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             kolodaView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            kolodaView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6)
+            kolodaView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6),
+            
+            emptyTodoCardDeckView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 16),
+            emptyTodoCardDeckView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            emptyTodoCardDeckView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            emptyTodoCardDeckView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6)
         ])
     }
 }

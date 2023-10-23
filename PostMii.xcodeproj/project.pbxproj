@@ -90,6 +90,7 @@
 		9ED16BF82AD5EA3F008A926C /* FriendsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BF72AD5EA3F008A926C /* FriendsVM.swift */; };
 		9ED16BFA2AD5EA7F008A926C /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BF92AD5EA7F008A926C /* Friend.swift */; };
 		9ED16BFD2AD6012B008A926C /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BFC2AD6012B008A926C /* CircleButton.swift */; };
+		9EEC6FCF2AE7243B00A50688 /* EmptyTodoCardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEC6FCE2AE7243B00A50688 /* EmptyTodoCardDeckView.swift */; };
 		A0A30942C09429C90786129B /* Pods_PostMii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C86C1D6CBD059BD423057 /* Pods_PostMii.framework */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +183,7 @@
 		9ED16BF72AD5EA3F008A926C /* FriendsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVM.swift; sourceTree = "<group>"; };
 		9ED16BF92AD5EA7F008A926C /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		9ED16BFC2AD6012B008A926C /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		9EEC6FCE2AE7243B00A50688 /* EmptyTodoCardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTodoCardDeckView.swift; sourceTree = "<group>"; };
 		B42AF8779836E2330ED30571 /* Pods-PostMiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMiiTests.release.xcconfig"; path = "Target Support Files/Pods-PostMiiTests/Pods-PostMiiTests.release.xcconfig"; sourceTree = "<group>"; };
 		B46C45128B75590C43FDD375 /* Pods-PostMii-PostMiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostMii-PostMiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-PostMii-PostMiiUITests/Pods-PostMii-PostMiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D29954FB9DFD9B0F76D17E45 /* Pods_PostMiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostMiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -400,6 +402,7 @@
 				9E2AE4832AA82B6800E66B9A /* TodoCardView.swift */,
 				9E8CAF8E2AC14A9C00481DAA /* HomeCalendarView.swift */,
 				9E7F8CFC2ADF434B001FCF72 /* TodoCardOverlayView.swift */,
+				9EEC6FCE2AE7243B00A50688 /* EmptyTodoCardDeckView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -931,6 +934,7 @@
 			files = (
 				9E7F8CF02AD9E0DB001FCF72 /* UserAccountService.swift in Sources */,
 				9ED16BEC2AD508F2008A926C /* TodoDetailsVC.swift in Sources */,
+				9EEC6FCF2AE7243B00A50688 /* EmptyTodoCardDeckView.swift in Sources */,
 				9E8CAFC92AC39BF200481DAA /* NetworkManager.swift in Sources */,
 				9E4583982AA900B900822721 /* Gradients.swift in Sources */,
 				9E8CAF9E2AC152C100481DAA /* MyProfile.swift in Sources */,
