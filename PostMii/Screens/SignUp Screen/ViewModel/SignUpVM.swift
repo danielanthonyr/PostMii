@@ -28,7 +28,7 @@ class SignUpVM {
     
     func createAccount(withFullname: String, withEmail: String, withPassword: String) {
         accountCreatedError = nil // in case user made an error, won't reshow error dialog
-        let user = User(fullName: withFullname, email: withEmail, password: withEmail, profilePicURL: nil)
+        let user = User(fullName: withFullname, email: withEmail, password: withPassword, profilePicURL: nil)
         
         userAccountCreationService.createUser(user: user) { result in
             switch result {
