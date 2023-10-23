@@ -32,18 +32,21 @@ class SignUpView: UIView {
     
     private(set) var nameTextField: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Name"
         return textField
     }()
     
     private(set) var emailTextfield: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Email"
         return textField
     }()
     
     private(set) var passwordTextfield: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Password"
         textField.isSecureTextEntry = true
         return textField
@@ -51,6 +54,7 @@ class SignUpView: UIView {
     
     private(set) var confirmPasswordTextfield: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Confirm Password"
         textField.isSecureTextEntry = true
         return textField
@@ -104,6 +108,11 @@ class SignUpView: UIView {
             signUpButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             signUpButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             signUpButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            nameTextField.heightAnchor.constraint(equalToConstant: 50),
+            emailTextfield.heightAnchor.constraint(equalToConstant: 50),
+            passwordTextfield.heightAnchor.constraint(equalToConstant: 50),
+            confirmPasswordTextfield.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
