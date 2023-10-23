@@ -109,7 +109,7 @@ class MyProfileView: UIView {
     }
     
     private func setupViews() {
-        backgroundColor = .systemBackground
+        backgroundColor = .systemGray6
         
         profileContentStackview.addArrangedSubview(profileNameLabel)
         profileContentStackview.addArrangedSubview(profileNameEmailLabel)

@@ -37,7 +37,7 @@ class NotificationsView: UIView {
     // MARK: - Methods
     
     func setupViews() {
-        backgroundColor = .white
+        backgroundColor = .systemGray6
         
         addSubview(notificationsLabel)
     }
