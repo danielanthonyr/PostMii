@@ -79,6 +79,7 @@
 		9E8CB0152AC50F4D00481DAA /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E8CB0142AC50F4D00481DAA /* OpenSans-Bold.ttf */; };
 		9E8CB01B2AC5163F00481DAA /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB01A2AC5163F00481DAA /* AppFont.swift */; };
 		9E8CB01D2AC534CD00481DAA /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB01C2AC534CD00481DAA /* ThemeColors.swift */; };
+		9EC8E9F12AE073D80031F01C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC8E9F02AE073D80031F01C /* Lottie */; };
 		9ED16BE02AD4A2FE008A926C /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BDF2AD4A2FE008A926C /* CircleImageView.swift */; };
 		9ED16BE42AD4A7E7008A926C /* MyProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BE32AD4A7E7008A926C /* MyProfileService.swift */; };
 		9ED16BEA2AD508EA008A926C /* TodoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED16BE92AD508EA008A926C /* TodoDetailsView.swift */; };
@@ -207,6 +208,7 @@
 				9E8CAFE62AC3D7E800481DAA /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				9E8CAFEE2AC3D7E800481DAA /* FirebaseStorage in Frameworks */,
 				9E8CAFE22AC3D7E800481DAA /* FirebaseDatabaseSwift in Frameworks */,
+				9EC8E9F12AE073D80031F01C /* Lottie in Frameworks */,
 				9E8CAFD82AC3D7E800481DAA /* FirebaseAppDistribution-Beta in Frameworks */,
 				9E8CAFDC2AC3D7E800481DAA /* FirebaseAuthCombine-Community in Frameworks */,
 				9E8CAFF02AC3D7E800481DAA /* FirebaseStorageCombine-Community in Frameworks */,
@@ -695,6 +697,7 @@
 				9E8CAFED2AC3D7E800481DAA /* FirebaseStorage */,
 				9E8CAFEF2AC3D7E800481DAA /* FirebaseStorageCombine-Community */,
 				9E7F8CF82ADF32B6001FCF72 /* SkeletonView */,
+				9EC8E9F02AE073D80031F01C /* Lottie */,
 			);
 			productName = PostMii;
 			productReference = 9E2AE4372AA81F7D00E66B9A /* PostMii.app */;
@@ -774,6 +777,7 @@
 			packageReferences = (
 				9E8CAFCE2AC3D7E800481DAA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				9E7F8CF72ADF32B6001FCF72 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				9EC8E9EF2AE073D70031F01C /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 9E2AE4382AA81F7D00E66B9A /* Products */;
 			projectDirPath = "";
@@ -1334,6 +1338,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		9EC8E9EF2AE073D70031F01C /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1426,6 +1438,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9E8CAFCE2AC3D7E800481DAA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		9EC8E9F02AE073D80031F01C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9EC8E9EF2AE073D70031F01C /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 
