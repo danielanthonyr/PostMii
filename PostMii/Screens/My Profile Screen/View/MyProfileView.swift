@@ -28,7 +28,6 @@ class MyProfileView: UIView {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
         container.isSkeletonable = true
-        container.backgroundColor = .white
         return container
     }()
     
@@ -128,8 +127,8 @@ class MyProfileView: UIView {
         NSLayoutConstraint.activate([
             profileCircleViewContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             profileCircleViewContainer.centerXAnchor.constraint(equalTo: centerXAnchor),
-            profileCircleViewContainer.heightAnchor.constraint(equalToConstant: 100),
-            profileCircleViewContainer.widthAnchor.constraint(equalToConstant: 100),
+            profileCircleViewContainer.heightAnchor.constraint(equalToConstant: 150),
+            profileCircleViewContainer.widthAnchor.constraint(equalToConstant: 150),
             
             profilePicImageView.topAnchor.constraint(equalTo: profileCircleViewContainer.topAnchor),
             profilePicImageView.leadingAnchor.constraint(equalTo: profileCircleViewContainer.leadingAnchor),
