@@ -66,19 +66,19 @@ class MyProfileView: UIView {
         return label
     }()
     
-    private(set) var todosCompletedLabel: UILabel = {
-        let label = UILabel()
-        label.isSkeletonable = true
-        label.text = "Todos Completed: "
-        return label
-    }()
-    
-    private(set) var todosMissedLabel: UILabel = {
-        let label = UILabel()
-        label.isSkeletonable = true
-        label.text = "Todos Missed: "
-        return label
-    }()
+//    private(set) var todosCompletedLabel: UILabel = {
+//        let label = UILabel()
+//        label.isSkeletonable = true
+//        label.text = "Todos Completed: "
+//        return label
+//    }()
+//    
+//    private(set) var todosMissedLabel: UILabel = {
+//        let label = UILabel()
+//        label.isSkeletonable = true
+//        label.text = "Todos Missed: "
+//        return label
+//    }()
     
     private(set) var logoutButton: UIButton = {
         let button = UIButton(type: .system)
@@ -113,8 +113,8 @@ class MyProfileView: UIView {
         
         profileContentStackview.addArrangedSubview(profileNameLabel)
         profileContentStackview.addArrangedSubview(profileNameEmailLabel)
-        profileContentStackview.addArrangedSubview(todosCompletedLabel)
-        profileContentStackview.addArrangedSubview(todosMissedLabel)
+//        profileContentStackview.addArrangedSubview(todosCompletedLabel)
+//        profileContentStackview.addArrangedSubview(todosMissedLabel)
         
         profileCircleViewContainer.addSubview(profilePicImageView)
         profileCircleViewContainer.addSubview(cameraCirclePictureView)

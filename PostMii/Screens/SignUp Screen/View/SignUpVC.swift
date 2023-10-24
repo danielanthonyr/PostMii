@@ -28,6 +28,17 @@ class SignUpVC: UIViewController {
         setupViewModel()
     }
     
+    // MARK: - Methods
+    
+    func showSpinner() {
+        views.spinner.startAnimating()
+    }
+    
+    func createUser(userFullName: String, email: String, password: String) {
+        showSpinner()
+        viewModel.createAccount(withFullname: userFullName, withEmail: email, withPassword: password)
+    }
+    
     private func setupSelf() {
         self.title = "Sign Up"
         self.views.signUpButton.addTarget(self, action: #selector(signUpButtonTapped(sender:)), for: .touchUpInside)
@@ -50,8 +61,6 @@ class SignUpVC: UIViewController {
             self.redirectToHomeTabBarController()
         }
     }
-    
-    // MARK: - Methods
     
     @objc func signUpButtonTapped(sender: UIButton) {
         guard let userNameString = views.nameTextField.text, !userNameString.isEmpty else {
@@ -93,19 +102,10 @@ class SignUpVC: UIViewController {
         createUser(userFullName: name, email: email, password: password)
     }
     
-    func createUser(userFullName: String, email: String, password: String) {
-        showSpinner()
-        viewModel.createAccount(withFullname: userFullName, withEmail: email, withPassword: password)
-    }
-    
     private func redirectToHomeTabBarController() {
         let TabBarController = TabBarController()
         
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(TabBarController)
-    }
-    
-    func showSpinner() {
-        views.spinner.startAnimating()
     }
     
     private func hideSpinner() {
