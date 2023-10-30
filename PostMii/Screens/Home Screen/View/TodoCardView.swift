@@ -58,7 +58,7 @@ class TodoCardView: UIView {
     private(set) var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.sizeToFit()
         label.font = AppFont.semiBold.size(16)
         label.textColor = .lightGray
