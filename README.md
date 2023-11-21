@@ -1,5 +1,5 @@
 # PostMii
-Todo App (IN PROGRESS)
+Todo App
 
 Todo app with a Tinderesque card UI
 
